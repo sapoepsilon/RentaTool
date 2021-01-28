@@ -1,3 +1,3 @@
-# Rent-a-Tool App
+# RentTool App
 
 Built with **Xamarin**.
