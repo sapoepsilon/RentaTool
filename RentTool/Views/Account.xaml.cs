@@ -9,7 +9,14 @@ namespace RentTool
     {
         public Account()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new AddNewTool());
+        }
     }
+
 }

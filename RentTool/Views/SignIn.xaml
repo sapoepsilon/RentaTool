@@ -3,6 +3,7 @@
     <ContentPage.Content>
         <StackLayout>
         <Label Text="Sign In" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            <Button Text="SIGN IN (OPEN BROWSE PAGE)" Clicked="Button_Clicked"/>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>
