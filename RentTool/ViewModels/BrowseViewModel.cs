@@ -11,7 +11,7 @@ namespace RentTool.ViewModels
     public class BrowseViewModel : INotifyPropertyChanged
     {
 
-        //List that the items will be added
+        //List that the items will be added!
         private ObservableCollection<CardTool> items;
 
         //Necessary - ?!
