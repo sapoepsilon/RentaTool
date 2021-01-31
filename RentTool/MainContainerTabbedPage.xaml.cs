@@ -7,6 +7,19 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+//namespace RentTool
+//{
+//    [XamlCompilation(XamlCompilationOptions.Compile)]
+//    public partial class MainContainerTabbedPage : TabbedPage
+//    {
+//        public MainContainerTabbedPage()
+//        {
+//            NavigationPage.SetHasNavigationBar(this, false);
+//            InitializeComponent();
+//        }
+//    }
+//}
+
 namespace RentTool
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -16,6 +29,12 @@ namespace RentTool
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+
+            //(new NavigationPage(new CampaignPage()) { Title = "Campaign", Icon = "tab.png", BackgroundColor = Color.Black });
+            Children.Add((new NavigationPage(new Browse()) { Title = "Browse" }));
+            Children.Add((new NavigationPage(new Account()) { Title = "Account" }));
         }
     }
 }
+
+

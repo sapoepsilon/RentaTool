@@ -5,10 +5,10 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             xmlns:local="clr-namespace:RentTool"
             x:Class="RentTool.MainContainerTabbedPage">
-    <local:Browse Title="Browse" />
+    <!--<local:Browse Title="Browse" />
     <NavigationPage Title="Account">
         <x:Arguments>
             <local:Account />
         </x:Arguments>
-    </NavigationPage>
+    </NavigationPage>-->
 </TabbedPage>
