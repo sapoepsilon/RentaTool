@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentTool.MainPage">
 
-    <StackLayout>
-        <Label Text="Main Page" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        <Button Text="Sign In Page" Clicked="Button_Clicked"/>
-        <Button Text="Sign Up Page" Clicked="Button_Clicked_1"/>
+   <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical">
+        <Entry Placeholder="User New Email"  x:Name="UserNewEmail"></Entry>
+        <Entry Placeholder="User New Password"  x:Name="UserNewPassword"></Entry>
+        <Button BackgroundColor="Black" TextColor="White" Text="Signup" Clicked="signupbutton_Clicked" x:Name="signupbutton"/>
+        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Gray"/>
+        <Entry Placeholder="User  Email"  x:Name="UserLoginEmail"></Entry>
+        <Entry Placeholder="User Password"  x:Name="UserLoginPassword"></Entry>
+        <Button BackgroundColor="Black" Clicked="loginbutton_Clicked" TextColor="White" Text="Login" x:Name="loginbutton"/>
     </StackLayout>
 
 </ContentPage>

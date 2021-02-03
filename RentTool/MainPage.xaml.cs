@@ -4,25 +4,52 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Firebase.Auth;
+using Newtonsoft.Json;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace RentTool
 {
     public partial class MainPage : ContentPage
     {
+        public string WebAPIkey = "AIzaSyBoxjCCLkKUoWxKJu4xAYLLyqf0krQwzoo";
+
         public MainPage()
         {
             InitializeComponent();
         }
 
-        void Button_Clicked(System.Object sender, System.EventArgs e)
+        async void signupbutton_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new SignIn());
+            try
+            {
+                var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+                var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(UserNewEmail.Text, UserNewPassword.Text);
+                string gettoken = auth.FirebaseToken;
+                await App.Current.MainPage.DisplayAlert("Alert", "Successful", "Ok");
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "weak password", "OK");
+            }
         }
 
-        void Button_Clicked_1(System.Object sender, System.EventArgs e)
+        async void loginbutton_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new SignUp());
-        }
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+            try
+            {
+                var auth = await authProvider.SignInWithEmailAndPasswordAsync(UserLoginEmail.Text, UserLoginPassword.Text);
+                var content = await auth.GetFreshAuthAsync();
+                var serializedcontnet = JsonConvert.SerializeObject(content);
+                Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
+                await Navigation.PushAsync(new Browse());
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "Invalid useremail or password", "OK");
+            }
+        } //test
     }
 }
