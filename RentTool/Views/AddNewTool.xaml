@@ -3,6 +3,12 @@
         <ContentPage.Content>
         <StackLayout>
         <Label Text="Add New Tool" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+        <Entry Text="Name: " Margin="10,10,10,10"/>
+        <Entry Text="Price: " Margin="10,10,10,10"/>
+        <Entry Text="Description: " Margin="10,10,10,10"/>
+        <Entry Text="Address: " Margin="10,10,10,10"/>
+        <Entry Text="Payment: " Margin="10,10,10,10"/>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
