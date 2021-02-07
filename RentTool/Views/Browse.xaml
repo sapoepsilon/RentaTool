@@ -3,6 +3,8 @@
         <ContentPage.Content>
         <StackLayout>
         <Label Text="Browse Page" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                    <Label x:Name="MyUserName" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White" Clicked="Logout_Clicked"/>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>

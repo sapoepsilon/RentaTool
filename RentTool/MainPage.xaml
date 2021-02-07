@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentTool.MainPage">
 
-   <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical">
+   <StackLayout
+       Margin="20"
+       VerticalOptions="CenterAndExpand"
+       Spacing="20" Orientation="Vertical">
         <Entry Placeholder="User New Email"  x:Name="UserNewEmail"></Entry>
         <Entry Placeholder="User New Password"  x:Name="UserNewPassword"></Entry>
         <Button BackgroundColor="Black" TextColor="White" Text="Signup" Clicked="signupbutton_Clicked" x:Name="signupbutton"/>
