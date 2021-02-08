@@ -113,6 +113,14 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\drill.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\drill.imageset\drill.jpg" />
+    <ImageAsset Include="Assets.xcassets\hammer.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\hammer.imageset\hammer.png" />
+    <ImageAsset Include="Assets.xcassets\saw.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\saw.imageset\saw.png" />
+    <ImageAsset Include="Assets.xcassets\pliers.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\pliers.imageset\pliers.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,5 +140,11 @@
       <Project>{21931B3A-5E00-42E9-94E7-BE928A9F14ED}</Project>
       <Name>RentTool</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\drill.imageset\" />
+    <Folder Include="Assets.xcassets\hammer.imageset\" />
+    <Folder Include="Assets.xcassets\saw.imageset\" />
+    <Folder Include="Assets.xcassets\pliers.imageset\" />
   </ItemGroup>
 </Project>

@@ -14,7 +14,7 @@ namespace RentTool
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-             Navigation.PushAsync(new MainContainerTabbedPage());
+            Navigation.PushAsync(new MainContainerTabbedPage());
         }
     }
 }

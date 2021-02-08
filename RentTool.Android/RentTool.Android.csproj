@@ -85,9 +85,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\RentTool\RentTool.csproj">
       <Project>{21931B3A-5E00-42E9-94E7-BE928A9F14ED}</Project>
       <Name>RentTool</Name>
