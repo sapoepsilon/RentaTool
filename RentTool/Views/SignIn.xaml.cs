@@ -25,7 +25,7 @@ namespace RentTool
 
              if (signOut)
              {
-                 Application.Current.MainPage = new SignUp();
+                 Application.Current.MainPage = new MainPage();
              }
          }
 
