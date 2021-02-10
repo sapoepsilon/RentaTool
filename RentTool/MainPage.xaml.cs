@@ -4,12 +4,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RentTool.Views;
 using Xamarin.Forms;
 
 namespace RentTool
 {
+ 
     public partial class MainPage : ContentPage
     {
+      
         public MainPage()
         {
             InitializeComponent();

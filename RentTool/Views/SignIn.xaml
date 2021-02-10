@@ -1,9 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.SignIn">
     <ContentPage.Content>
-        <StackLayout>
-        <Label Text="Sign In" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            <Button Text="SIGN IN (OPEN BROWSE PAGE)" Clicked="Button_Clicked"/>
+        <StackLayout
+            VerticalOptions="Center"
+            Margin="20" >
+            
+            <Label
+                Text="Rent Tool"
+                HorizontalOptions="Center"
+                TextColor="Plum"
+                Margin="0,20" />
+            <Entry
+                Placeholder="E-mail"
+                Keyboard="Email"
+                x:Name = "EmailInput" />
+            
+            <Entry
+                Placeholder="Password"
+                IsPassword="True"
+                x:Name= "PasswordInput" />
+            <Button
+                Text="Enter"
+                Clicked = "LoginClicked"
+                BackgroundColor="Plum"
+                TextColor="White" />
+            <Button 
+                        Text="Create a new account"
+                        TextColor="Plum"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Transparent"
+                        Clicked="SignUpClicked" />
+                
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>

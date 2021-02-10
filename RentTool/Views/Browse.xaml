@@ -73,6 +73,11 @@
                        Text="{Binding pricePerDay, StringFormat='${0:N}'}"      
                        VerticalOptions="End" />
                         </Grid>
+                        <Button
+                            Text="SignOut"
+                            Clicked="SignOut_Clicked"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
