@@ -8,7 +8,11 @@
         <Entry Text="Description: " Margin="10,10,10,10"/>
         <Entry Text="Address: " Margin="10,10,10,10"/>
         <Entry Text="Payment: " Margin="10,10,10,10"/>
+<<<<<<< HEAD
 
         </StackLayout>
+=======
+    </StackLayout>
+>>>>>>> parent of c7530b1 (Update AddNewTool.xaml)
     </ContentPage.Content>
 </ContentPage>
