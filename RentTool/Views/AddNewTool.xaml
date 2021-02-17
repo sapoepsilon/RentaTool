@@ -8,6 +8,7 @@
         <Entry Text="Description: " Margin="10,10,10,10"/>
         <Entry Text="Address: " Margin="10,10,10,10"/>
         <Entry Text="Payment: " Margin="10,10,10,10"/>
-    </StackLayout>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
