@@ -8,8 +8,6 @@
         <Entry Text="Description: " Margin="10,10,10,10"/>
         <Entry Text="Address: " Margin="10,10,10,10"/>
         <Entry Text="Payment: " Margin="10,10,10,10"/>
-        <Button Text="Add Tool" />
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>
-
