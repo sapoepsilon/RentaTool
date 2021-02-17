@@ -6,20 +6,11 @@ namespace RentTool
 {
     public partial class App : Application
     {
-        private Iauth _auth;
         public App()
         {
             InitializeComponent();
-            _auth = DependencyService.Get<Iauth>();
 
-            if (_auth.IsSignIn())
-            {
-                MainPage = new Browse();
-            }
-            else
-            {
-                MainPage = new MainPage();
-            }
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

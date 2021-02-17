@@ -1,30 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.Views.SignUp">
-    <ContentPage.Content>
-            <StackLayout
-                VerticalOptions="Center"
-                Margin="20" >
-                
-                <Label
-                    Text="Rent Tool Create account"
-                    HorizontalOptions="Center"
-                    Margin="0,20" />
-                <Entry
-                    Placeholder="E-mail"
-                    Keyboard="Email"
-                    x:Name = "EmailInput" />
-                
-                <Entry
-                    Placeholder="Password"
-                    IsPassword="True"
-                    x:Name= "PasswordInput" />
-      
-                <Button 
-                            Text="Create a new account"
-                            HorizontalOptions="Center"
-                            BackgroundColor="Transparent"
-                            Clicked="SignUpClicked" />
-                    
-        </StackLayout>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.SignUp">
+        <ContentPage.Content>
+        <StackLayout>
+        <Label Text="Sign Un" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+    </StackLayout>
     </ContentPage.Content>
 </ContentPage>
