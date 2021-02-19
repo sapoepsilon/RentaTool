@@ -48,7 +48,7 @@ namespace RentTool
         void Logout_Clicked(System.Object sender, System.EventArgs e)
         {
             Preferences.Remove("MyFirebaseRefreshToken");
-            App.Current.MainPage = new NavigationPage(new SignIn());
+            App.Current.MainPage = new NavigationPage(new MainPage());
         }
     }
 
