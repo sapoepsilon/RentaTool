@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.SignUp">
         <ContentPage.Content>
-        <StackLayout>
-        <Label Text="Sign Un" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical">
+        <Entry Placeholder="User New Email"  x:Name="UserNewEmail"></Entry>
+        <Entry Placeholder="User New Password"  x:Name="UserNewPassword"></Entry>
+        <Button BackgroundColor="Black" TextColor="White" Text="Signup" Clicked="signupbutton_Clicked" x:Name="signupbutton"/>
+        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Gray"/>
+        <Entry Placeholder="User  Email"  x:Name="UserLoginEmail"></Entry>
+        <Entry Placeholder="User Password"  x:Name="UserLoginPassword"></Entry>
+        <Button BackgroundColor="Black" Clicked="loginbutton_Clicked" TextColor="White" Text="Login" x:Name="loginbutton"/>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>
