@@ -24,24 +24,12 @@ namespace RentTool
             {
                 var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(UserNewEmail.Text, UserNewPassword.Text);
                 string gettoken = auth.FirebaseToken;
-                await App.Current.MainPage.DisplayAlert("Alert", gettoken, "Ok");
-            }
-            catch (Exception ex)
-            {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
-            }
-        }
 
-        async void loginbutton_Clicked(System.Object sender, System.EventArgs e)
-        {
-            
-            try
-            {
-                var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
-                var auth = await authProvider.SignInWithEmailAndPasswordAsync(UserLoginEmail.Text, UserLoginPassword.Text);
                 var content = await auth.GetFreshAuthAsync();
                 var serializedcontnet = JsonConvert.SerializeObject(content);
                 Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
+
+                await App.Current.MainPage.DisplayAlert("Alert", "Account Created!✅", "Ok");
                 await Navigation.PushAsync(new MainContainerTabbedPage());
             }
             catch (Exception ex)
@@ -49,5 +37,6 @@ namespace RentTool
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
         }
+
     }
 }

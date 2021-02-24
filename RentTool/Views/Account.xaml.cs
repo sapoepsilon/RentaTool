@@ -16,7 +16,9 @@ namespace RentTool
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
+            // Function to vei
             GetProfileInformationAndRefreshToken();
+
         }
 
         async private void GetProfileInformationAndRefreshToken()
@@ -35,8 +37,7 @@ namespace RentTool
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                await App.Current.MainPage.DisplayAlert("Alert", "Oh no !  Token expired", "OK");
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
         }
 
