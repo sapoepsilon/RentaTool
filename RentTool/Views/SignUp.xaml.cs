@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Firebase.Auth;
 using Newtonsoft.Json;
+using Plugin.CloudFirestore;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -17,6 +18,7 @@ namespace RentTool
             InitializeComponent();
         }
 
+        [Obsolete]
         async void signupbutton_Clicked(System.Object sender, System.EventArgs e)
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
@@ -29,12 +31,23 @@ namespace RentTool
                 var serializedcontnet = JsonConvert.SerializeObject(content);
                 Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
 
-                await App.Current.MainPage.DisplayAlert("Alert", "Account Created!✅", "Ok");
+                // 1. Store the ID of the user
+                var idUser = auth.User.LocalId;
+
+                // 2. Create user in Firestore using the same id for the user created by Firebase
+                await CrossCloudFirestore.Current
+                         .Instance
+                         .GetCollection("users")
+                         .GetDocument(idUser)
+                         .SetAsync(new { firstName = userFirstName.Text, lastName = userLastName.Text, zip = zip.Text,
+                         phone = userPhone.Text, creditCardNumber = ccNumber.Text, creditCardCvv = ccCvv.Text, creditCardExpiration = ccMonthYear.Text});
+
+                await App.Current.MainPage.DisplayAlert("Alert", "Account Created! ✅", "Ok");
                 await Navigation.PushAsync(new MainContainerTabbedPage());
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+                await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "OK");
             }
         }
 

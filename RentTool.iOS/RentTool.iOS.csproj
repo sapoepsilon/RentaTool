@@ -133,6 +133,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Plugin.CloudFirestore">
+      <Version>4.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -146,5 +149,8 @@
     <Folder Include="Assets.xcassets\hammer.imageset\" />
     <Folder Include="Assets.xcassets\saw.imageset\" />
     <Folder Include="Assets.xcassets\pliers.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
 </Project>
