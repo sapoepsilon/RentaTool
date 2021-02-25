@@ -3,9 +3,26 @@
         <ContentPage.Content>
         <StackLayout>
             <Label Text="My Account" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            <Label x:Name="MyUserName" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White" Clicked="Logout_Clicked"/>
+           
+
+            
+            <Entry Placeholder="First Name:"  x:Name="userFirstName"></Entry>
+            <Entry Placeholder="Last Name"  x:Name="userLastName"></Entry>
+            <Entry Placeholder="Phone"  x:Name="userPhone" Keyboard="Numeric"></Entry>
+            <Entry Placeholder="E-mail"  x:Name="UserNewEmail" Keyboard="Plain"></Entry>
+            <Entry Placeholder="Password"  x:Name="UserNewPassword" IsPassword="True"></Entry>
+            <Entry Placeholder="Zip code"  x:Name="zip" Keyboard="Numeric"></Entry>
+
+            <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
+            <Entry Placeholder="Number"  x:Name="ccNumber" Keyboard="Numeric"></Entry>
+            <Entry Placeholder="CVV"  x:Name="ccCvv" Keyboard="Numeric"></Entry>
+            <Entry Placeholder="(mm/yy)"  x:Name="ccMonthYear" Keyboard="Numeric"></Entry>
+            <Button Text="UPDATE" 
+                    Clicked="UpdateClicked"
+                    BackgroundColor="Green" />
+            
             <Button Text="Add Item" Clicked="Button_Clicked"/>
+            <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White" Clicked="Logout_Clicked"/>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>

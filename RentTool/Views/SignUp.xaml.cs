@@ -12,6 +12,8 @@ namespace RentTool
     {
 
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
+        private string firstName;
+        private string lastName;
 
         public SignUp()
         {
@@ -50,6 +52,8 @@ namespace RentTool
                 await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "OK");
             }
         }
+        
+        
 
     }
 }
