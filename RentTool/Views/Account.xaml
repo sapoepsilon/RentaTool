@@ -10,7 +10,7 @@
             <Entry Placeholder="Last Name"  x:Name="userLastName"></Entry>
             <Entry Placeholder="Phone"  x:Name="userPhone" Keyboard="Numeric"></Entry>
             <Entry Placeholder="E-mail"  x:Name="UserNewEmail" Keyboard="Plain"></Entry>
-            <Entry Placeholder="Password"  x:Name="UserNewPassword" IsPassword="True"></Entry>
+            <Entry Placeholder="Change Password"  x:Name="UserNewPassword" IsPassword="True"></Entry>
             <Entry Placeholder="Zip code"  x:Name="zip" Keyboard="Numeric"></Entry>
 
             <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Medium"/>

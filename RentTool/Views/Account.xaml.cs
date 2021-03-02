@@ -16,6 +16,8 @@ namespace RentTool
 
         public string UserID;
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
+        public string token;
+        public string user;
 
         public Account()
         {
@@ -41,6 +43,8 @@ namespace RentTool
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(RefreshedContent));
                 //Now lets grab user information
                 UserID = savedfirebaseauth.User.LocalId;
+                token = savedfirebaseauth.FirebaseToken;
+                user = savedfirebaseauth.User.Email;
                 QueryRequest();
 
 
@@ -68,8 +72,11 @@ namespace RentTool
 
         async void UpdateClicked(object sender, EventArgs e)
         {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
             try
             {
+
+                var changePassword = authProvider.ChangeUserPassword(token, UserNewPassword.Text);
                 await CrossCloudFirestore.Current
                     .Instance
                     .GetCollection("users")
@@ -95,6 +102,7 @@ namespace RentTool
         [Obsolete]
         async void QueryRequest()
         {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
             try
             {
                 var document = await CrossCloudFirestore.Current
@@ -112,6 +120,7 @@ namespace RentTool
                 ccNumber.Text = QueryObject.creditCardNumber;
                 ccMonthYear.Text = QueryObject.creditCardCvv;
                 zip.Text = QueryObject.zip;
+                UserNewEmail.Text = user;
 
             }
             catch (Exception ex)
