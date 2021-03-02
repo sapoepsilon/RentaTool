@@ -7,7 +7,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
-
+using RentTool.Models;
 
 namespace RentTool
 {
@@ -41,6 +41,7 @@ namespace RentTool
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(RefreshedContent));
                 //Now lets grab user information
                 UserID = savedfirebaseauth.User.LocalId;
+                QueryRequest();
 
 
             }
@@ -75,17 +76,49 @@ namespace RentTool
                     .GetDocument(UserID)
                     .UpdateAsync(new
                     {
-                        firstName = userFirstName.Text, lastName = userLastName.Text, zip = zip.Text,
-                        phone = userPhone.Text, creditCardNumber = ccNumber.Text, creditCardCvv = ccCvv.Text,
+                        firstName = userFirstName.Text,
+                        lastName = userLastName.Text,
+                        zip = zip.Text,
+                        phone = userPhone.Text,
+                        creditCardNumber = ccNumber.Text,
+                        creditCardCvv = ccCvv.Text,
                         creditCardExpiration = ccMonthYear.Text
                     });
                 await App.Current.MainPage.DisplayAlert("Alert", "Account Updated! ✅", "Ok");
-                await Navigation.PushAsync(new MainContainerTabbedPage());
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "OK");
             }
+        }
+
+        [Obsolete]
+        async void QueryRequest()
+        {
+            try
+            {
+                var document = await CrossCloudFirestore.Current
+                    .Instance
+                    .GetCollection("users")
+                    .GetDocument(UserID)
+                    .GetAsync();
+
+                var QueryObject = document.ToObject<Models.user>();
+
+                userFirstName.Text = QueryObject.firstName;
+                userLastName.Text = QueryObject.lastName;
+                userPhone.Text = QueryObject.phone;
+                ccCvv.Text = QueryObject.creditCardCvv;
+                ccNumber.Text = QueryObject.creditCardNumber;
+                ccMonthYear.Text = QueryObject.creditCardCvv;
+                zip.Text = QueryObject.zip;
+
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "can't questy", "OK");
+            }
+
         }
     }
 }
