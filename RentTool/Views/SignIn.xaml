@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.SignIn">
     <ContentPage.Content>
-        <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical">
-            <Label Text="Sign in" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Large"/>
-        <Entry Placeholder="User  Email"  x:Name="UserLoginEmail" Keyboard="Plain"></Entry>
-        <Entry Placeholder="User Password"  x:Name="UserLoginPassword" IsPassword="True"></Entry>
-        <Button BackgroundColor="Black" Clicked="loginbutton_Clicked" TextColor="White" Text="Login" x:Name="loginbutton"/>
-    </StackLayout>
+        <ScrollView>
+
+            <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical">
+                <Label Text="Sign in" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Large"/>
+                <Entry Placeholder="User  Email"  x:Name="UserLoginEmail" Keyboard="Plain"></Entry>
+                <Entry Placeholder="User Password"  x:Name="UserLoginPassword" IsPassword="True"></Entry>
+                <Button BackgroundColor="Black" Clicked="loginbutton_Clicked" TextColor="White" Text="Login" x:Name="loginbutton"/>
+                <Button Clicked="Reset_Clicked" TextColor="Blue" Text="Forgot Password?" x:Name="resetPassword" />
+                <Button Clicked="NavToSignUp_Clicked" TextColor="Black" BackgroundColor="Aqua" Text="Do not have an account? Sign up" x:Name="NavigateToSignUp" VerticalOptions="End" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

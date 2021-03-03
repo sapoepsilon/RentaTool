@@ -47,6 +47,7 @@ namespace RentTool
                 user = savedfirebaseauth.User.Email;
                 QueryRequest();
 
+               
 
             }
             catch (Exception ex)
@@ -77,6 +78,7 @@ namespace RentTool
             {
 
                 var changePassword = authProvider.ChangeUserPassword(token, UserNewPassword.Text);
+
                 await CrossCloudFirestore.Current
                     .Instance
                     .GetCollection("users")

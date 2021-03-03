@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Firebase.Auth;
 using Newtonsoft.Json;
+using RentTool.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -34,5 +35,18 @@ namespace RentTool
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
         }
-    }
+
+        void Reset_Clicked(System.Object Sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ResetPassword());
+
+        }
+
+        void NavToSignUp_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new SignUp());
+
+        }
+    } 
+
 }
