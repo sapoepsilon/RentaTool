@@ -9,23 +9,26 @@ using Firebase.Auth;
 using Plugin.CloudFirestore;
 using RentTool.Models;
 
-namespace RentTool
+namespace RentTool.Views
 {
-    public partial class Account : ContentPage
+    
+    public partial class Update : ContentPage
     {
-
         public string UserID;
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string token;
         public string user;
 
-        public Account()
+        public Update()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
+
             // Function to vei
             GetProfileInformationAndRefreshToken();
+
+
 
         }
 
@@ -47,7 +50,7 @@ namespace RentTool
                 user = savedfirebaseauth.User.Email;
                 QueryRequest();
 
-               
+
 
             }
             catch (Exception ex)
@@ -58,29 +61,36 @@ namespace RentTool
 
         }
 
-        void ChangeClicked(System.Object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new Views.ChangePassword());
-        }
-
-
-        void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new AddNewTool());
-        }
-
-        void Logout_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Preferences.Remove("MyFirebaseRefreshToken");
-            App.Current.MainPage = new NavigationPage(new MainPage());
-        }
-
-         void UpdateClicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Views.Update());
-        }
-
         [Obsolete]
+        async void Update_Cliked(object sender, EventArgs e)
+        {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
+            try
+            {
+                await CrossCloudFirestore.Current
+                    .Instance
+                    .GetCollection("users")
+                    .GetDocument(UserID)
+                    .UpdateAsync(new
+                    {
+                        firstName = userFirstName.Text,
+                        lastName = userLastName.Text,
+                        zip = zip.Text,
+                        phone = userPhone.Text,
+                        creditCardNumber = ccNumber.Text,
+                        creditCardCvv = ccCvv.Text,
+                        creditCardExpiration = ccMonthYear.Text
+                    });
+                await App.Current.MainPage.DisplayAlert("Alert", "Account Updated! ✅", "Ok");
+                Navigation.PushAsync(new Account());
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "OK");
+            }
+        }
+
+
         async void QueryRequest()
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
@@ -103,12 +113,15 @@ namespace RentTool
                 zip.Text = QueryObject.zip;
                 UserNewEmail.Text = user;
 
+
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "can't questy", "OK");
+                await App.Current.MainPage.DisplayAlert("Alert", "can't Updated", "OK");
             }
 
         }
+
     }
+
 }

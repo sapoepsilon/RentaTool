@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentTool.Views.Update">
+    <ContentPage.Content>
+        <ScrollView HeightRequest="3000">
+
+            <StackLayout>
+                <Label Text="Update Account" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+
+
+                <Entry Placeholder="Firstname"  x:Name="userFirstName"></Entry>
+                <Entry Placeholder="Last Name"  x:Name="userLastName"></Entry>
+                <Entry Placeholder="Phone"  x:Name="userPhone" Keyboard="Numeric"></Entry>
+                <Entry Placeholder="E-mail"  x:Name="UserNewEmail" Keyboard="Plain"></Entry>
+
+                <Entry Placeholder="Zip code"  x:Name="zip" Keyboard="Numeric"></Entry>
+
+                <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
+                <Entry Placeholder="Number"  x:Name="ccNumber" Keyboard="Numeric"></Entry>
+                <Entry Placeholder="CVV"  x:Name="ccCvv" Keyboard="Numeric"></Entry>
+                <Entry Placeholder="(mm/yy)"  x:Name="ccMonthYear" Keyboard="Numeric"></Entry>
+
+                <Button  Text="Update" BackgroundColor="Blue"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="Update_Cliked"/>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

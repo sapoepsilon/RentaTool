@@ -113,14 +113,30 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\drill.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\drill.imageset\drill.jpg" />
-    <ImageAsset Include="Assets.xcassets\hammer.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\hammer.imageset\hammer.png" />
-    <ImageAsset Include="Assets.xcassets\saw.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\saw.imageset\saw.png" />
-    <ImageAsset Include="Assets.xcassets\pliers.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\pliers.imageset\pliers.jpeg" />
+    <ImageAsset Include="Assets.xcassets\drill.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\drill.imageset\drill.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\hammer.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\hammer.imageset\hammer.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\saw.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\saw.imageset\saw.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\pliers.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\pliers.imageset\pliers.jpeg">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

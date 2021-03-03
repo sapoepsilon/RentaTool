@@ -1,28 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.Account">
         <ContentPage.Content>
-        <StackLayout>
-            <Label Text="My Account" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-           
+        <ScrollView HeightRequest="3000">
 
-            
-            <Entry Placeholder="First Name:"  x:Name="userFirstName"></Entry>
-            <Entry Placeholder="Last Name"  x:Name="userLastName"></Entry>
-            <Entry Placeholder="Phone"  x:Name="userPhone" Keyboard="Numeric"></Entry>
-            <Entry Placeholder="E-mail"  x:Name="UserNewEmail" Keyboard="Plain"></Entry>
-            <Entry Placeholder="Change Password"  x:Name="UserNewPassword" IsPassword="True"></Entry>
-            <Entry Placeholder="Zip code"  x:Name="zip" Keyboard="Numeric"></Entry>
+            <StackLayout>
+                <Label Text="My Account" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
-            <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
-            <Entry Placeholder="Number"  x:Name="ccNumber" Keyboard="Numeric"></Entry>
-            <Entry Placeholder="CVV"  x:Name="ccCvv" Keyboard="Numeric"></Entry>
-            <Entry Placeholder="(mm/yy)"  x:Name="ccMonthYear" Keyboard="Numeric"></Entry>
-            <Button Text="UPDATE" 
-                    Clicked="UpdateClicked"
-                    BackgroundColor="Green" />
-            
-            <Button Text="Add Item" Clicked="Button_Clicked"/>
-            <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White" Clicked="Logout_Clicked"/>
-    </StackLayout>
+
+
+                <Entry Placeholder="Firstname "  x:Name="userFirstName"></Entry>
+                <Entry Placeholder="Last Name"  x:Name="userLastName"></Entry>
+                <Entry Placeholder="Phone"  x:Name="userPhone" Keyboard="Numeric"></Entry>
+                <Entry Placeholder="E-mail"  x:Name="UserNewEmail" Keyboard="Plain"></Entry>
+                <Entry Placeholder="Change Password"  x:Name="UserNewPassword" IsPassword="True"></Entry>
+                <Entry Placeholder="Zip code"  x:Name="zip" Keyboard="Numeric"></Entry>
+
+                <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
+                <Entry Placeholder="Number"  x:Name="ccNumber" Keyboard="Numeric"></Entry>
+                <Entry Placeholder="CVV"  x:Name="ccCvv" Keyboard="Numeric"></Entry>
+                <Entry Placeholder="(mm/yy)"  x:Name="ccMonthYear" Keyboard="Numeric"></Entry>
+
+                <Grid Margin="10, 0, 10, 0"  ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height ="35"></RowDefinition>
+                        <RowDefinition Height ="35"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Button  Grid.Row ="0" Grid.Column="0"  Text="UPDATE" Clicked="UpdateClicked" BackgroundColor="Green" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="Change Password" Clicked="ChangeClicked" BackgroundColor="Blue" />
+
+                </Grid>
+
+
+
+                <Button Text="Add Item" Clicked="Button_Clicked"/>
+                <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White" Clicked="Logout_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>
