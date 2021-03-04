@@ -11,6 +11,7 @@ namespace RentTool.Models
         public string creditCardNumber { get; set; }
         public string creditCardCvv { get; set; }
         public string creditCardExpiration { get; set; }
+        public string[] toolID { get; set; }
         public user()
         {
         }

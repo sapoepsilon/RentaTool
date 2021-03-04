@@ -38,6 +38,8 @@
 
 
                 <Button Text="Add Item" Clicked="Button_Clicked"/>
+                <Label Text="Your Tools: " TextColor="White" FontSize="Large" BackgroundColor="Green" Opacity="70" />
+                <Label Text="" x:Name="tools" FontSize="Large" TextColor="Black"/>
                 <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White" Clicked="Logout_Clicked"/>
             </StackLayout>
         </ScrollView>

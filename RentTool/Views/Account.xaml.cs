@@ -18,6 +18,7 @@ namespace RentTool
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string token;
         public string user;
+        public string toolID;
 
         public Account()
         {
@@ -101,12 +102,41 @@ namespace RentTool
                 ccNumber.Text = QueryObject.creditCardNumber;
                 ccMonthYear.Text = QueryObject.creditCardCvv;
                 zip.Text = QueryObject.zip;
-                UserNewEmail.Text = user;
+
+              
+
+               if (QueryObject.toolID != null)
+               {
+
+                   String toolName;
+
+               foreach (var toolsOfUser in QueryObject.toolID)
+               {
+
+                   var toolID = await CrossCloudFirestore.Current
+                       .Instance
+                       .GetCollection("tools")
+                       .GetDocument(toolsOfUser)
+                       .GetAsync();
+
+                   var getTheToolName = toolID.ToObject<tool>();
+
+
+
+                   tools.Text= getTheToolName.toolName + " $" + getTheToolName.toolPrice; 
+                  
+                   
+               }
+
+               
+
+
+               }
 
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "can't questy", "OK");
+                await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "OK");
             }
 
         }

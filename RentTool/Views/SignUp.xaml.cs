@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Firebase.Auth;
 using Newtonsoft.Json;
@@ -35,6 +36,7 @@ namespace RentTool
 
                 // 1. Store the ID of the user
                 var idUser = auth.User.LocalId;
+                var toolId = new ArrayList();
 
                 // 2. Create user in Firestore using the same id for the user created by Firebase
                 await CrossCloudFirestore.Current
@@ -42,7 +44,7 @@ namespace RentTool
                          .GetCollection("users")
                          .GetDocument(idUser)
                          .SetAsync(new { firstName = userFirstName.Text, lastName = userLastName.Text, zip = zip.Text,
-                         phone = userPhone.Text, creditCardNumber = ccNumber.Text, creditCardCvv = ccCvv.Text, creditCardExpiration = ccMonthYear.Text});
+                         phone = userPhone.Text, creditCardNumber = ccNumber.Text, creditCardCvv = ccCvv.Text, creditCardExpiration = ccMonthYear.Text, toolID = toolId});
 
                 await App.Current.MainPage.DisplayAlert("Alert", "Account Created! ✅", "Ok");
                 await Navigation.PushAsync(new MainContainerTabbedPage());
