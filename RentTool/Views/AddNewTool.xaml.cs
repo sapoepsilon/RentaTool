@@ -11,6 +11,8 @@ namespace RentTool
         {
             InitializeComponent();
         }
-        //test
     }
-}
+        
+    }
+            
+
