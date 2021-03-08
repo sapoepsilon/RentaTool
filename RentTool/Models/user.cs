@@ -1,4 +1,6 @@
 ﻿using System;
+using Xamarin.Forms;
+
 namespace RentTool.Models
 {
     public class user

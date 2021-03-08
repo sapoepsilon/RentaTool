@@ -1,46 +1,53 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.Account">
-        <ContentPage.Content>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentTool.Account">
+    <ContentPage.Content>
         <ScrollView HeightRequest="3000">
 
             <StackLayout>
                 <Label Text="My Account" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
 
+                <Entry Placeholder="Firstname " x:Name="userFirstName" />
+                <Entry Placeholder="Last Name" x:Name="userLastName" />
+                <Entry Placeholder="Phone" x:Name="userPhone" Keyboard="Numeric" />
+                <Entry Placeholder="E-mail" x:Name="UserNewEmail" Keyboard="Plain" />
+                <Entry Placeholder="Change Password" x:Name="UserNewPassword" IsPassword="True" />
+                <Entry Placeholder="Zip code" x:Name="zip" Keyboard="Numeric" />
 
-                <Entry Placeholder="Firstname "  x:Name="userFirstName"></Entry>
-                <Entry Placeholder="Last Name"  x:Name="userLastName"></Entry>
-                <Entry Placeholder="Phone"  x:Name="userPhone" Keyboard="Numeric"></Entry>
-                <Entry Placeholder="E-mail"  x:Name="UserNewEmail" Keyboard="Plain"></Entry>
-                <Entry Placeholder="Change Password"  x:Name="UserNewPassword" IsPassword="True"></Entry>
-                <Entry Placeholder="Zip code"  x:Name="zip" Keyboard="Numeric"></Entry>
+                <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                       FontSize="Medium" />
+                <Entry Placeholder="Number" x:Name="ccNumber" Keyboard="Numeric" />
+                <Entry Placeholder="CVV" x:Name="ccCvv" Keyboard="Numeric" />
+                <Entry Placeholder="(mm/yy)" x:Name="ccMonthYear" Keyboard="Numeric" />
 
-                <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
-                <Entry Placeholder="Number"  x:Name="ccNumber" Keyboard="Numeric"></Entry>
-                <Entry Placeholder="CVV"  x:Name="ccCvv" Keyboard="Numeric"></Entry>
-                <Entry Placeholder="(mm/yy)"  x:Name="ccMonthYear" Keyboard="Numeric"></Entry>
-
-                <Grid Margin="10, 0, 10, 0"  ColumnSpacing="10">
+                <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition Width="200" />
 
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height ="35"></RowDefinition>
-                        <RowDefinition Height ="35"></RowDefinition>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
                     </Grid.RowDefinitions>
 
-                    <Button  Grid.Row ="0" Grid.Column="0"  Text="UPDATE" Clicked="UpdateClicked" BackgroundColor="Green" />
-                    <Button Grid.Row="0" Grid.Column="1" Text="Change Password" Clicked="ChangeClicked" BackgroundColor="Blue" />
+                    <Button Grid.Row="0" Grid.Column="0" Text="UPDATE" Clicked="UpdateClicked" BackgroundColor="Green" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="Change Password" Clicked="ChangeClicked"
+                            BackgroundColor="Blue" />
 
                 </Grid>
 
 
-
-                <Button Text="Add Item" Clicked="Button_Clicked"/>
+                <Button Text="Add Item" Clicked="Button_Clicked" />
                 <Label Text="Your Tools: " TextColor="White" FontSize="Large" BackgroundColor="Green" Opacity="70" />
-                <Label Text="" x:Name="tools" FontSize="Large" TextColor="Black"/>
-                <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White" Clicked="Logout_Clicked"/>
+
+                <ListView x:Name="toolNames"
+
+                          BindingContext="{Binding .}"
+                          />
+
+                <Button x:Name="Logout" Text="Logout" BackgroundColor="Black"                 Clicked="Logout_Clicked" />
             </StackLayout>
         </ScrollView>
 

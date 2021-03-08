@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Firebase.Auth;
 using Newtonsoft.Json;
@@ -13,7 +15,6 @@ namespace RentTool
 {
     public partial class Account : ContentPage
     {
-
         public string UserID;
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string token;
@@ -27,7 +28,6 @@ namespace RentTool
 
             // Function to vei
             GetProfileInformationAndRefreshToken();
-
         }
 
         async private void GetProfileInformationAndRefreshToken()
@@ -47,16 +47,11 @@ namespace RentTool
                 token = savedfirebaseauth.FirebaseToken;
                 user = savedfirebaseauth.User.Email;
                 QueryRequest();
-
-               
-
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
-
-
         }
 
         void ChangeClicked(System.Object sender, System.EventArgs e)
@@ -76,13 +71,13 @@ namespace RentTool
             App.Current.MainPage = new NavigationPage(new MainPage());
         }
 
-         void UpdateClicked(object sender, EventArgs e)
+        void UpdateClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Views.Update());
         }
 
         [Obsolete]
-        async void QueryRequest()
+        public async void QueryRequest()
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
             try
@@ -103,42 +98,52 @@ namespace RentTool
                 ccMonthYear.Text = QueryObject.creditCardCvv;
                 zip.Text = QueryObject.zip;
 
-              
 
-               if (QueryObject.toolID != null)
-               {
+                var toolArray = new ArrayList();
 
-                   String toolName;
+                foreach (var toolsOfUser in QueryObject.toolID)
+                {
+                    var idOfTool = await CrossCloudFirestore.Current
+                        .Instance
+                        .GetCollection("tools")
+                        .GetDocument(toolsOfUser)
+                        .GetAsync();
 
-               foreach (var toolsOfUser in QueryObject.toolID)
-               {
+                    var getTheToolName = idOfTool.ToObject<tool>();
 
-                   var toolID = await CrossCloudFirestore.Current
-                       .Instance
-                       .GetCollection("tools")
-                       .GetDocument(toolsOfUser)
-                       .GetAsync();
+                    toolArray.Add(getTheToolName.toolName);
+                }
 
-                   var getTheToolName = toolID.ToObject<tool>();
-
-
-
-                   tools.Text= getTheToolName.toolName + " $" + getTheToolName.toolPrice; 
-                  
-                   
-               }
-
-               
+                toolNames.ItemsSource = toolArray;
 
 
-               }
+                //toolNames.ItemSelected += (sender, e) =>
+                //{
+//				if (e.SelectedItem == null) return;
+//				Debug.WriteLine("Selected: " + e.SelectedItem);
+//				((ListView)sender).SelectedItem = null; // de-select the row
+//			};
 
+                // If using ItemSelected
+//			listView.ItemSelected += (sender, e) => {
+//				if (e.SelectedItem == null) return;
+//				Debug.WriteLine("Selected: " + e.SelectedItem);
+//				((ListView)sender).SelectedItem = null; // de-select the row
+//			};
+
+                //Padding = new Thickness(0, 20, 0, 0);
+                //Content = toolView;
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "OK");
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
-
         }
+
+        private void ToolNames_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        
     }
 }
