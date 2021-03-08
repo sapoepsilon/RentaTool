@@ -58,7 +58,7 @@ namespace RentTool
                 
                  
                 await App.Current.MainPage.DisplayAlert("Alert", "Your tool has been created with the tool id: " + IDTool, "Ok");
-                
+                Navigation.PushAsync(new Account());
 
 
 

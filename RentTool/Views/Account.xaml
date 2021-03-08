@@ -45,9 +45,12 @@
                 <ListView x:Name="toolNames"
 
                           BindingContext="{Binding .}"
+                          BackgroundColor="White"
+                          
+                          
                           />
 
-                <Button x:Name="Logout" Text="Logout" BackgroundColor="Black"                 Clicked="Logout_Clicked" />
+                <Button x:Name="Logout" Text="Logout" BackgroundColor="Black"   TextColor="White"              Clicked="Logout_Clicked" />
             </StackLayout>
         </ScrollView>
 

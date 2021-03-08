@@ -115,7 +115,7 @@ namespace RentTool
                 }
 
                 toolNames.ItemsSource = toolArray;
-
+      
 
                 //toolNames.ItemSelected += (sender, e) =>
                 //{
@@ -140,10 +140,5 @@ namespace RentTool
             }
         }
 
-        private void ToolNames_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        
     }
 }
