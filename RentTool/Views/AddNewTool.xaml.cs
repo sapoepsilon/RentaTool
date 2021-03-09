@@ -46,6 +46,12 @@ namespace RentTool
 
                     });
                 IDTool = addTool.Id;
+                
+                await CrossCloudFirestore.Current
+                    .Instance
+                    .GetCollection("tools")
+                    .GetDocument(IDTool)
+                    .SetAsync(new{ toolID = IDTool}, true); 
 
                await CrossCloudFirestore.Current
                         .Instance
