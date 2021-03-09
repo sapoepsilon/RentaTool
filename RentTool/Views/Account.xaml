@@ -42,12 +42,11 @@
                 <Button Text="Add Item" Clicked="Button_Clicked" />
                 <Label Text="Your Tools: " TextColor="White" FontSize="Large" BackgroundColor="Green" Opacity="70" />
 
-                <ListView x:Name="toolName" Footer="">
+                <ListView x:Name="toolName" HeightRequest="150">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-        
-                  
+                                
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
@@ -59,14 +58,14 @@
                                         <ColumnDefinition Width="50"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label  Grid.Column="0" Text="{Binding toolName}" Padding="20" FontAttributes="Bold" />
-                                    <Label  Grid.Column="1" Text="{Binding toolPrice}" Padding="20"/>
-                                    <Label Grid.Column="2" Text="{Binding toolPayment}" Padding="20"/>
+                                    <Label  Grid.Column="0" Text="{Binding toolName}" Padding="20" FontAttributes="Bold" TextColor="black" />
+                                    <Label  Grid.Column="1" Text="{Binding toolPrice}" Padding="20" TextColor="Black"/>
+                                    <Label Grid.Column="2" Text="{Binding toolPayment}" Padding="20" TextColor="Black"/>
                                     <Button Grid.Column="3" Text="Delete" TextColor="White" BackgroundColor="Red"
                                             BindingContext="{Binding toolID}" Clicked="Delete_Clicked" CommandParameter="{Binding .}"/>
                                 </Grid>
                                 <ViewCell.ContextActions>
-                                    <MenuItem Text="More" Clicked="MenuItem_OnClicked"/>
+                                    <MenuItem Text="Edit" BindingContext="{Binding toolID}" Clicked="MenuItem_OnClicked"/>
                                 </ViewCell.ContextActions>
                             </ViewCell>
                         </DataTemplate>

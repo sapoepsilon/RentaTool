@@ -118,11 +118,10 @@ namespace RentTool
                    
 
                     toolList.Add(new toolQuery { toolName = getTheToolName.toolName, toolPrice = "$" + getTheToolName.toolPrice, toolPayment = getTheToolName.toolPayment, toolID = getTheToolName.toolID});
-                   
                 }
 
                 toolName.ItemsSource = toolList;
-      
+
 
                 //toolNames.ItemSelected += (sender, e) =>
                 //{
@@ -156,6 +155,8 @@ namespace RentTool
             {
                 await App.Current.MainPage.DisplayAlert("Delete tool?", "Are you sure you want to delete this tool?",
                     "Yes", "No, I am dummy");
+                DisplayAlert("title", toolList.Count.ToString(), "ok");
+
                     
                 var tool = ((Button) sender).BindingContext as string;
                
@@ -184,7 +185,13 @@ namespace RentTool
 */
                 
                 toolList.Remove(toolList.Where(i => i.toolID == tool).Single());
-                
+
+                await CrossCloudFirestore.Current
+                    .Instance
+                    .GetCollection("users")
+                    .GetDocument(UserID)
+                    .UpdateAsync("toolID", FieldValue.ArrayRemove(tool));
+
 
 
 
@@ -204,7 +211,7 @@ namespace RentTool
         {
             try
             {
-                Navigation.PushAsync(new EditTool());
+                Navigation.PushAsync(new EditTool(toolID));
             }
             catch (Exception ex)
             {
