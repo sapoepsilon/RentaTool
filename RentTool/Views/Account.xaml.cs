@@ -24,7 +24,7 @@ namespace RentTool
         public string user;
         public string toolID;
         ObservableCollection<Models.toolQuery> toolList = new ObservableCollection<Models.toolQuery>();
-
+        private bool _canClose = true;
 
         public Account()
         {
@@ -84,7 +84,6 @@ namespace RentTool
         [Obsolete]
         public async void QueryRequest()
         {
-            
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
             try
             {
@@ -103,7 +102,7 @@ namespace RentTool
                 ccNumber.Text = QueryObject.creditCardNumber;
                 ccMonthYear.Text = QueryObject.creditCardExpiration;
                 zip.Text = QueryObject.zip;
-                
+
                 foreach (var toolsOfUser in QueryObject.toolID)
                 {
                     var idOfTool = await CrossCloudFirestore.Current
@@ -112,12 +111,15 @@ namespace RentTool
                         .GetDocument(toolsOfUser)
                         .GetAsync();
 
-                    
 
                     var getTheToolName = idOfTool.ToObject<toolQuery>();
-                   
 
-                    toolList.Add(new toolQuery { toolName = getTheToolName.toolName, toolPrice = "$" + getTheToolName.toolPrice, toolPayment = getTheToolName.toolPayment, toolID = getTheToolName.toolID});
+
+                    toolList.Add(new toolQuery
+                    {
+                        toolName = getTheToolName.toolName, toolPrice = "$" + getTheToolName.toolPrice,
+                        toolPayment = getTheToolName.toolPayment, toolID = getTheToolName.toolID
+                    });
                 }
 
                 toolName.ItemsSource = toolList;
@@ -146,65 +148,43 @@ namespace RentTool
             }
         }
 
-        
-
         private async void Delete_Clicked(object sender, EventArgs e)
         {
-            
-            try
+            var answer = await App.Current.MainPage.DisplayAlert("Delete tool?",
+                "Are you sure you want to delete this tool?",
+                "Yes", "No, I am dummy");
+
+            if (answer == true)
             {
-                await App.Current.MainPage.DisplayAlert("Delete tool?", "Are you sure you want to delete this tool?",
-                    "Yes", "No, I am dummy");
-                DisplayAlert("title", toolList.Count.ToString(), "ok");
-
-                    
-                var tool = ((Button) sender).BindingContext as string;
-               
-                await CrossCloudFirestore.Current
-                    .Instance
-                    .GetCollection("tools")
-                    .GetDocument(tool)
-                    .DeleteAsync();
-
-          /*      var getTheToolFromUser = await CrossCloudFirestore.Current
-                    .Instance
-                    .GetCollection("users")
-                    .WhereArrayContainsAny(tool, new object[] { 100, 200 })
-                    .GetAsync();
-            
-                
-                foreach (var tools in specificTool.toolID)
+                try
                 {
-                    String toolInTheLoop = tools;
-                    int i = 0;
-                    if (toolInTheLoop == tool)
-                    {
-                        getTheToolFromUser.ToObject<user>().toolID[i].
-                    }
+                    var tool = ((Button) sender).BindingContext as string;
+
+                    await CrossCloudFirestore.Current
+                        .Instance
+                        .GetCollection("tools")
+                        .GetDocument(tool)
+                        .DeleteAsync();
+                    toolList.Remove(toolList.Where(i => i.toolID == tool).Single());
+
+                    await CrossCloudFirestore.Current
+                        .Instance
+                        .GetCollection("users")
+                        .GetDocument(UserID)
+                        .UpdateAsync("toolID", FieldValue.ArrayRemove(tool));
                 }
-*/
-                
-                toolList.Remove(toolList.Where(i => i.toolID == tool).Single());
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
+                }
 
-                await CrossCloudFirestore.Current
-                    .Instance
-                    .GetCollection("users")
-                    .GetDocument(UserID)
-                    .UpdateAsync("toolID", FieldValue.ArrayRemove(tool));
-
-
-
-
-
-
-
+                await App.Current.MainPage.DisplayAlert("Alert", "The tool has been deleted", "Ok");
             }
-            catch (Exception ex)
+            else
             {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
+                await App.Current.MainPage.DisplayAlert("Smart choice", "This tool might bring you some buck!",
+                    "Yay!");
             }
-
-            await App.Current.MainPage.DisplayAlert("Alert", "The tool has been deleted", "Ok");
         }
 
         private void MenuItem_OnClicked(object sender, EventArgs e)
@@ -219,5 +199,4 @@ namespace RentTool
             }
         }
     }
-    }
-
+}

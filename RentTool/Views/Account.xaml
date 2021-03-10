@@ -59,7 +59,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Label Grid.Column="0" Text="{Binding toolName}"  FontAttributes="Bold"
-                                           TextColor="black" FontSize="Large" Padding="10" />
+                                           TextColor="black" FontSize="Default" Padding="10" />
                                     <Label Grid.Column="1" Text="{Binding toolPrice}"  TextColor="Black" Padding="10"/>
                                     <Label Grid.Column="2" Text="{Binding toolPayment}"  TextColor="Black" Padding="10"/>
                                     <Button Grid.Column="3" Text="Delete" TextColor="White" BackgroundColor="Red"
