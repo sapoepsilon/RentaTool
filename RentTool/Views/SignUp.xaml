@@ -17,7 +17,7 @@
             <Entry Placeholder="CVV"  x:Name="ccCvv" Keyboard="Numeric"></Entry>
             <Entry Placeholder="(mm/yy)"  x:Name="ccMonthYear" Keyboard="Numeric"></Entry>
 
-            <Button BackgroundColor="Black" TextColor="White" Text="Signup" Clicked="signupbutton_Clicked" x:Name="signupbutton"/>
+            <Button BackgroundColor="Green" TextColor="White" Text="Signup" Clicked="signupbutton_Clicked" x:Name="signupbutton"/>
             <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Gray"/>
           </StackLayout>
         </ScrollView>

@@ -1,14 +1,29 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.AddNewTool">
         <ContentPage.Content>
-        <StackLayout>
+            <ScrollView>
+            <StackLayout>
             <Label Text="Add New Tool" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             <Entry Placeholder="Name: " Margin="10,10,10,10" x:Name="toolName"/>
             <Entry Placeholder="Price: " Margin="10,10,10,10" x:Name="toolPrice"/>
             <Entry Placeholder="Description: " Margin="10,10,10,10" x:Name = "toolDescription"/>
             <Entry Placeholder="Address: " Margin="10,10,10,10" x:Name="toolAddress"/>
             <Entry Placeholder="Payment: " Margin="10,10,10,10" x:Name="toolPayment"/>
+            <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Text="take a Pic" x:Name="takePic"  Background="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="TakePic_OnClicked"/>
+            <Button Grid.Row="0"  Grid.Column="1" Text="choose a Pic" x:Name="addPic" Background="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="AddPic_OnClicked"  />
+                            </Grid>
+            <Image x:Name="imageOfTheTool" HeightRequest="150" />
             <Button Text="Add Tool" Clicked="AddToolButton_Clicked" />
     </StackLayout>
-    </ContentPage.Content>
+                </ScrollView>
+        </ContentPage.Content>
 </ContentPage>

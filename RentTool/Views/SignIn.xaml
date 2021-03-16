@@ -7,7 +7,7 @@
                 <Label Text="Sign in" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Large"/>
                 <Entry Placeholder="User  Email"  x:Name="UserLoginEmail" Keyboard="Plain"></Entry>
                 <Entry Placeholder="User Password"  x:Name="UserLoginPassword" IsPassword="True"></Entry>
-                <Button BackgroundColor="Black" Clicked="loginbutton_Clicked" TextColor="White" Text="Login" x:Name="loginbutton"/>
+                <Button BackgroundColor="Green" Clicked="loginbutton_Clicked" TextColor="White" Text="Login" x:Name="loginbutton"/>
                 <Button Clicked="Reset_Clicked" TextColor="Blue" Text="Forgot Password?" x:Name="resetPassword" />
                 <Button Clicked="NavToSignUp_Clicked" TextColor="Black" BackgroundColor="Aqua" Text="Do not have an account? Sign up" x:Name="NavigateToSignUp" VerticalOptions="End" />
             </StackLayout>

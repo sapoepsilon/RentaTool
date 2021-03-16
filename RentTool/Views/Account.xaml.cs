@@ -65,9 +65,16 @@ namespace RentTool
         }
 
 
-        void Button_Clicked(System.Object sender, System.EventArgs e)
+        async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new AddNewTool());
+            try
+            {
+                Navigation.PushAsync(new AddNewTool());
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+            }
         }
 
         void Logout_Clicked(System.Object sender, System.EventArgs e)
@@ -118,7 +125,8 @@ namespace RentTool
                     toolList.Add(new toolQuery
                     {
                         toolName = getTheToolName.toolName, toolPrice = "$" + getTheToolName.toolPrice,
-                        toolPayment = getTheToolName.toolPayment, toolID = getTheToolName.toolID
+                        pictureUrl = getTheToolName.pictureUrl, toolID = getTheToolName.toolID
+                       
                     });
                 }
 
