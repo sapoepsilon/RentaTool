@@ -46,7 +46,7 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" Grid.Column="1" CornerRadius="15" Text="Add Item" Clicked="Button_Clicked"
-                            BorderColor="Green" BorderWidth="1" TextColor="White"  BackgroundColor="White" />
+                            BorderColor="Green" BorderWidth="1" TextColor="Green"  BackgroundColor="White" />
                     <Label Grid.Row="0" Grid.Column="0" Text="My Tools: " WidthRequest="15" TextColor="White"
                            FontSize="Large" BackgroundColor="Green" Opacity="70" />
                 </Grid>
