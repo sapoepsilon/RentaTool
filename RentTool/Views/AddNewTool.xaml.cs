@@ -23,8 +23,6 @@ namespace RentTool
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string userId;
         FileResult photo;
-        FirebaseStorage firebaseStorage = new FirebaseStorage("gs://renttool-750de.appspot.com");
-
         public string IDTool;
         // ObservableCollection<ImagePath> listPath = new ObservableCollection<ImagePath>();
 

@@ -8,7 +8,6 @@
             <StackLayout>
                 <Label Text="My Account" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
-
                 <Entry Placeholder="Firstname " x:Name="userFirstName" />
                 <Entry Placeholder="Last Name" x:Name="userLastName" />
                 <Entry Placeholder="Phone" x:Name="userPhone" Keyboard="Numeric" />
@@ -36,18 +35,20 @@
                     <Button Grid.Row="0" Grid.Column="1" Text="Change Password" Clicked="ChangeClicked"
                             BackgroundColor="Blue" />
                 </Grid>
-                
+
                 <Grid Margin="10, 10, 10, 10" ColumnSpacing="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
-                </Grid.RowDefinitions>
-                
-                <Button Grid.Row="0" Grid.Column="1" CornerRadius="15" Text="Add Item" Clicked="Button_Clicked" BorderWidth="1" BorderColor="Green" BackgroundColor="White"/>
-                <Label Grid.Row="0" Grid.Column="0" Text="My Tools: " WidthRequest="15" TextColor="White" FontSize="Large" BackgroundColor="Green" Opacity="70" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="0" Grid.Column="1" CornerRadius="15" Text="Add Item" Clicked="Button_Clicked"
+                            BorderColor="Green" BorderWidth="1" TextColor="White"  BackgroundColor="White" />
+                    <Label Grid.Row="0" Grid.Column="0" Text="My Tools: " WidthRequest="15" TextColor="White"
+                           FontSize="Large" BackgroundColor="Green" Opacity="70" />
                 </Grid>
 
                 <ListView x:Name="toolName" HeightRequest="150">
@@ -55,11 +56,11 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
-                                    
+
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                    
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30*" />
                                         <ColumnDefinition Width="30*" />
@@ -67,12 +68,14 @@
                                         <ColumnDefinition Width="90" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="1" Text="{Binding toolName}"  FontAttributes="Bold"
+                                    <Label Grid.Column="1" Text="{Binding toolName}" FontAttributes="Bold"
                                            TextColor="black" FontSize="Default" Padding="10" />
-                                    <Label Grid.Column="2" Text="{Binding toolPrice}"  TextColor="Black" Padding="10"/>
+                                    <Label Grid.Column="2" Text="{Binding toolPrice}" TextColor="Black" Padding="10" />
                                     <Image Grid.Column="0" Source="{Binding pictureUrl}" />
-                                    <Button Grid.Column="3"  FontFamily="Material Icons" Text="Delete" FontAttributes="None"
-                                            BindingContext="{Binding toolID}" WidthRequest="20"  Clicked="Delete_Clicked" CornerRadius="30" BackgroundColor="red"
+                                    <Button Grid.Column="3" FontFamily="Material Icons" Text="Delete"
+                                            FontAttributes="None"
+                                            BindingContext="{Binding toolID}" WidthRequest="20"
+                                            Clicked="Delete_Clicked" CornerRadius="30" TextColor="White" BackgroundColor="red"
                                             CommandParameter="{Binding .}" />
                                 </Grid>
                                 <ViewCell.ContextActions>

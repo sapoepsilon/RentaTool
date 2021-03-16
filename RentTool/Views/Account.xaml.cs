@@ -69,7 +69,7 @@ namespace RentTool
         {
             try
             {
-                Navigation.PushAsync(new AddNewTool());
+                await Navigation.PushAsync(new AddNewTool());
             }
             catch (Exception ex)
             {
