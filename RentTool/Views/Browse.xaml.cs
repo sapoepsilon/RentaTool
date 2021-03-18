@@ -10,6 +10,7 @@ namespace RentTool
 
         public Browse()
         {
+            
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 

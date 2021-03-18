@@ -32,6 +32,13 @@ namespace RentTool.ViewModels
 
         public static ObservableCollection<CardTool> Items = new ObservableCollection<CardTool>
          {
+            new CardTool()
+                {
+                    name = "Drill",
+                    image = "drill.jpg",
+                    pricePerDay = "oi",
+                    distance = 1.7f
+                }
          };
 
         public static ObservableCollection<CardTool> itemTools
