@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading.Tasks;
+using System.Linq;
 using Firebase.Auth;
 using Firebase.Storage;
 using Newtonsoft.Json;
@@ -22,6 +23,7 @@ namespace RentTool
     {
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string userId;
+        public IEnumerable<Xamarin.Essentials.Location> location;
         FileResult photo;
         public string IDTool;
         // ObservableCollection<ImagePath> listPath = new ObservableCollection<ImagePath>();
@@ -32,6 +34,8 @@ namespace RentTool
             InitializeComponent();
         }
 
+
+
         async void AddToolButton_Clicked(System.Object sender, System.EventArgs e)
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
@@ -39,7 +43,17 @@ namespace RentTool
                 JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken",
                     ""));
 
+
+
+            location = await Geocoding.GetLocationsAsync(toolAddress.Text);
             userId = savedfirebaseauth.User.LocalId;
+            var locations = location?.FirstOrDefault();
+            if (locations != null) {
+
+                var placemarks = await Geocoding.GetPlacemarksAsync(locations.Latitude, locations.Longitude);
+                var placemark = placemarks?.FirstOrDefault();
+          
+
             try
             {
                 var addTool = await CrossCloudFirestore.Current
@@ -51,9 +65,13 @@ namespace RentTool
                         toolPrice = toolPrice.Text,
                         toolDescription = toolDescription.Text,
                         toolPayment = toolPayment.Text,
-                        toolAddress = toolAddress.Text,
+
+                        toolAddress = placemark.Location,
                         UserId = userId,
-                    });
+                    });;
+
+                
+
                 IDTool = addTool.Id;
 
                 await CrossCloudFirestore.Current
@@ -72,6 +90,8 @@ namespace RentTool
                 await App.Current.MainPage.DisplayAlert("Alert",
                     "Your tool has been created with the tool id: " + IDTool, "Ok");
 
+                
+
                 var reference = CrossFirebaseStorage.Current.Instance.RootReference.Child(photo.FullPath);
 
                 await reference.PutFileAsync(photo.FullPath);
@@ -89,10 +109,16 @@ namespace RentTool
             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "Ok");
             }
+
+
+            } // end if
+
+
         }
 
         private async void ToolPhotos_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
         }
 
         private async void TakePic_OnClicked(object sender, EventArgs e)
@@ -131,14 +157,18 @@ namespace RentTool
         {
             try
             {
-                photo = await MediaPicker.PickPhotoAsync();
-                String filepath = photo.FullPath;
-                LoadPhotoAsync(photo);
-            }
-            catch (Exception ex)
-            {
+              photo = await MediaPicker.PickPhotoAsync();
+             String filepath = photo.FullPath;
+             LoadPhotoAsync(photo);
+             }
+             catch (Exception ex)
+             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
-            }
+             }
+
+           
+
         }
     }
 }
+
