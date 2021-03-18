@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Firebase.Auth;
 using Firebase.Storage;
@@ -42,10 +43,33 @@ namespace RentTool
             userId = savedfirebaseauth.User.LocalId;
             try
             {
-                var addTool = await CrossCloudFirestore.Current
+
+               
+              var address = toolAddress.Text;
+                    var locations = await Geocoding.GetLocationsAsync(address);
+
+                    var location = locations?.FirstOrDefault();
+                   
+                    
+                        var addToolAddress = await CrossCloudFirestore.Current
+                            .Instance
+                            .GetCollection("tools")
+                            .AddAsync(new
+                            {
+                                toolLongtitude = location.Longitude,
+                                toolLatitude = location.Latitude
+                            });
+                        IDTool = addToolAddress.Id;
+                    
+                
+              
+            
+
+            await CrossCloudFirestore.Current
                     .Instance
                     .GetCollection("tools")
-                    .AddAsync(new
+                    .GetDocument(IDTool)
+                    .SetAsync(new 
                     {
                         toolName = toolName.Text,
                         toolPrice = toolPrice.Text,
@@ -53,8 +77,8 @@ namespace RentTool
                         toolPayment = toolPayment.Text,
                         toolAddress = toolAddress.Text,
                         UserId = userId,
-                    });
-                IDTool = addTool.Id;
+                    }, true);
+                
 
                 await CrossCloudFirestore.Current
                     .Instance
@@ -73,8 +97,9 @@ namespace RentTool
                     "Your tool has been created with the tool id: " + IDTool, "Ok");
 
                 var reference = CrossFirebaseStorage.Current.Instance.RootReference.Child(photo.FullPath);
+                var stream = await photo.OpenReadAsync();
 
-                await reference.PutFileAsync(photo.FullPath);
+                await reference.PutStreamAsync(stream);
                 var url = await reference.GetDownloadUrlAsync();
 
                 await CrossCloudFirestore.Current
@@ -87,7 +112,7 @@ namespace RentTool
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "Ok");
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
             }
         }
 

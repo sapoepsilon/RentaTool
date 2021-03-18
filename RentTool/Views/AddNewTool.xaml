@@ -7,7 +7,7 @@
             <Entry Placeholder="Name: " Margin="10,10,10,10" x:Name="toolName"/>
             <Entry Placeholder="Price: " Margin="10,10,10,10" x:Name="toolPrice"/>
             <Entry Placeholder="Description: " Margin="10,10,10,10" x:Name = "toolDescription"/>
-            <Entry Placeholder="Address: " Margin="10,10,10,10" x:Name="toolAddress"/>
+            <Entry Placeholder="Address: House street city state county no commas " Margin="10,10,10,10" x:Name="toolAddress"/>
             <Entry Placeholder="Payment: " Margin="10,10,10,10" x:Name="toolPayment"/>
             <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
