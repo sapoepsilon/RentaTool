@@ -7,6 +7,7 @@ namespace RentTool
 {
     public partial class Browse : ContentPage
     {
+
         public Browse()
         {
             NavigationPage.SetHasNavigationBar(this, false);
