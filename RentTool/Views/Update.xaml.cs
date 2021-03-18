@@ -109,7 +109,7 @@ namespace RentTool.Views
                 userPhone.Text = QueryObject.phone;
                 ccCvv.Text = QueryObject.creditCardCvv;
                 ccNumber.Text = QueryObject.creditCardNumber;
-                ccMonthYear.Text = QueryObject.creditCardCvv;
+                ccMonthYear.Text = QueryObject.creditCardExpiration;
                 zip.Text = QueryObject.zip;
                 UserNewEmail.Text = user;
 
