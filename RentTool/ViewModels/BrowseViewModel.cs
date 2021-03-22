@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
 using RentTool.Models;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace RentTool.ViewModels
@@ -54,6 +55,19 @@ namespace RentTool.ViewModels
                 
                 foreach (var tool in yourModels)
                 {
+                    //Example to Calculate distance between 2 locations
+                    //Location boston = new Location(42.358056, -71.063611);
+                    //Location sanFrancisco = new Location(37.783333, -122.416667);
+                    //double miles = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Miles);
+                    //Console.WriteLine(miles);
+
+                    // 1) Grab user's location (lat, long)
+
+
+                    // 2) Grab tool's location (lat, long)
+
+                    // 3) Calculate distance and reference to the new CardTool
+
                     Items.Add(new CardTool()
                     {
                         id = tool.toolID,
