@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
 using RentTool.Models;
+using Xamarin.Forms;
 
 namespace RentTool.ViewModels
 {
@@ -14,129 +15,101 @@ namespace RentTool.ViewModels
     {
 
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
-
-        //List that the items will be added!
         private ObservableCollection<CardTool> items;
 
-        //Necessary - ?!
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //public ObservableCollection<CardTool> Items
-        //{
-        //    get { return items; }
-        //    set
-        //    {
-        //        items = value;
-        //    }
-        //}
-
-        public static ObservableCollection<CardTool> Items = new ObservableCollection<CardTool>
-         {
-            new CardTool()
-                {
-                    name = "Drill",
-                    image = "drill.jpg",
-                    pricePerDay = "oi",
-                    distance = 1.7f
-                }
-         };
-
-        public static ObservableCollection<CardTool> itemTools
+        public ObservableCollection<CardTool> Items
         {
-            get { return Items; }
-
+            get { return items; }
+            set
+            {
+                items = value;
+            }
         }
+
+        //public static ObservableCollection<CardTool> Items = new ObservableCollection<CardTool>
+        // {
+
+        //new CardTool()
+        //        {
+        //            name = "Drill",
+        //            image = "drill.jpg",
+        //            pricePerDay = "oi",
+        //            distance = 1.7f
+        //        }
+        // };
+
+        //public static ObservableCollection<CardTool> itemTools
+        //{
+        //    get { return Items; }
+
+        //}
 
         [Obsolete]
         public BrowseViewModel()
         {
             QueryRequest();
-            Items = new ObservableCollection<CardTool>();
-            
-            //Items = new ObservableCollection<CardTool>() {
-            //    new CardTool()
-            //    {
-            //        name = "Drill",
-            //        image = "drill.jpg",
-            //        pricePerDay = 12f,
-            //        distance = 1.7f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Saw",
-            //        image = "saw.png",
-            //        pricePerDay = 15f,
-            //        distance = 4.2f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Pliers",
-            //        image = "pliers.jpg",
-            //        pricePerDay = 4.75f,
-            //        distance = 6.4f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Hammer",
-            //        image = "hammer.png",
-            //        pricePerDay = 15,
-            //        distance = 8.3f
-            //    },new CardTool()
-            //    {
-            //        name = "Drill",
-            //        image = "drill.jpg",
-            //        pricePerDay = 12f,
-            //        distance = 1.7f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Saw",
-            //        image = "saw.png",
-            //        pricePerDay = 15f,
-            //        distance = 4.2f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Pliers",
-            //        image = "pliers.jpg",
-            //        pricePerDay = 4.75f,
-            //        distance = 6.4f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Hammer",
-            //        image = "hammer.png",
-            //        pricePerDay = 15,
-            //        distance = 8.3f
-            //    },new CardTool()
-            //    {
-            //        name = "Drill",
-            //        image = "drill.jpg",
-            //        pricePerDay = 12f,
-            //        distance = 1.7f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Saw",
-            //        image = "saw.png",
-            //        pricePerDay = 15f,
-            //        distance = 4.2f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Pliers",
-            //        image = "pliers.jpg",
-            //        pricePerDay = 4.75f,
-            //        distance = 6.4f
-            //    },
-            //      new CardTool()
-            //    {
-            //        name = "Hammer",
-            //        image = "hammer.png",
-            //        pricePerDay = 15,
-            //        distance = 8.3f
-            //    },
-            //};
+            //Items = new ObservableCollection<CardTool>();
+
+
+            Items = new ObservableCollection<CardTool>() {
+            //new CardTool()
+            //{
+            //    name = "Drill",
+            //    image = "drill.jpg",
+            //    pricePerDay = "t",
+            //    distance = 1.7f
+            //},
+            //  new CardTool()
+            //{
+            //    name = "Saw",
+            //    image = "saw.png",
+            //    pricePerDay = "t",
+            //    distance = 4.2f
+            //},
+            //  new CardTool()
+            //{
+            //    name = "Pliers",
+            //    image = "pliers.jpg",
+            //    pricePerDay = "t",
+            //    distance = 6.4f
+            //},
+            //  new CardTool()
+            //{
+            //    name = "Hammer",
+            //    image = "hammer.png",
+            //    pricePerDay = "t",
+            //    distance = 8.3f
+            //},new CardTool()
+            //{
+            //    name = "Drill",
+            //    image = "drill.jpg",
+            //    pricePerDay = "t",
+            //    distance = 1.7f
+            //},
+            //  new CardTool()
+            //{
+            //    name = "Saw",
+            //    image = "saw.png",
+            //    pricePerDay = "t",
+            //    distance = 4.2f
+            //},
+            //  new CardTool()
+            //{
+            //    name = "Pliers",
+            //    image = "pliers.jpg",
+            //    pricePerDay = "t",
+            //    distance = 6.4f
+            //},
+            //  new CardTool()
+            //{
+            //    name = "Hammer",
+            //    image = "hammer.png",
+            //    pricePerDay = "t",
+            //    distance = 8.3f
+            //}
+        };
 
         }
 
@@ -177,21 +150,6 @@ namespace RentTool.ViewModels
             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
-
-            //try
-            //{
-            //    var document = await CrossCloudFirestore.Current
-            //        .Instance
-            //        .GetCollection("tools")
-            //        .GetAsync();
-
-            //    Console.WriteLine(document);
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
-            //}
         }
     }
 }
