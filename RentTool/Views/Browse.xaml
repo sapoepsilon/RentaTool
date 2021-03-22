@@ -48,7 +48,7 @@
                        Text="{Binding name}"
                        FontAttributes="Bold" />
                             <Label Grid.Row="1" Grid.Column="1"
-                       Text="{Binding distance, StringFormat='{0:0.0}mi'}"
+                       Text="{Binding distance, StringFormat='{0:0.0}'}"
                        FontAttributes="Italic" FontSize="12" VerticalOptions="Center" />
                             <Label Grid.Row="2"
                        Grid.Column="0"
