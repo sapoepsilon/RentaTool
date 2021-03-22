@@ -22,12 +22,9 @@ namespace RentTool
 
         void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)
         {
-            string previous = (e.PreviousSelection.FirstOrDefault() as CardTool)?.id;
             string current = (e.CurrentSelection.FirstOrDefault() as CardTool)?.id;
-
-            Console.WriteLine("hereeee");
-            Console.WriteLine(previous);
-            Console.WriteLine(current);
+            string selectedID = (e.CurrentSelection.FirstOrDefault() as CardTool)?.id;
+            Navigation.PushAsync(new Views.ToolDetail(selectedID));
         }
     }
 }
