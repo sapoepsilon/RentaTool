@@ -16,7 +16,16 @@ namespace RentTool
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
+            MessagingCenter.Subscribe<AddNewTool>(this, "Refresh", (s) => {
+                Refresh();
+            });
+
             // Connecting context of this page to the our View Model class
+            BindingContext = new BrowseViewModel();
+        }
+
+        private void Refresh()
+        {
             BindingContext = new BrowseViewModel();
         }
 
@@ -41,5 +50,11 @@ namespace RentTool
                 
 
         }
+
+        //protected override void OnAppearing() {
+        //    base.OnAppearing();
+        //    InitializeComponent();
+        //    Console.Write("ITS SHOWING");
+        //}
     }
 }

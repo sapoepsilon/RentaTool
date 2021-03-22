@@ -90,6 +90,8 @@ namespace RentTool
                 await App.Current.MainPage.DisplayAlert("Alert",
                     "Your tool has been created with the tool id: " + IDTool, "Ok");
 
+                MessagingCenter.Send<AddNewTool>(this, "Refresh");
+
                 Navigation.PushAsync(new Account());
             }
             catch (Exception ex)
