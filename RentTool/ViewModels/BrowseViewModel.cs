@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
@@ -18,6 +19,7 @@ namespace RentTool.ViewModels
     {
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         private ObservableCollection<CardTool> items;
+        private double miles;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -63,6 +65,35 @@ namespace RentTool.ViewModels
 
                     // 1) Grab user's location (lat, long)
 
+                    try
+                    {
+                        var addressUser = "84103";
+
+                        var locationsUser = await Geocoding.GetLocationsAsync(addressUser);
+                        var locationUser = locationsUser?.FirstOrDefault();
+
+                        var locationsTool = await Geocoding.GetLocationsAsync(tool.toolAddress);
+                        var locationTool = locationsTool?.FirstOrDefault();
+
+                        if (locationUser != null)
+                        {
+                            Console.WriteLine($"Latitude: {locationUser.Latitude}, Longitude: {locationUser.Longitude}, Altitude: {locationUser.Altitude}");
+                            Console.WriteLine($"Latitude: {locationTool.Latitude}, Longitude: {locationTool.Longitude}, Altitude: {locationTool.Altitude}");
+                            Console.WriteLine("miles:");
+                            miles = Location.CalculateDistance(locationUser, locationTool, DistanceUnits.Miles);
+                            Console.WriteLine(miles);
+                        }
+                    }
+                    catch (FeatureNotSupportedException fnsEx)
+                    {
+                        // Feature not supported on device
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle exception that may have occurred in geocoding
+                    }
+
+
 
                     // 2) Grab tool's location (lat, long)
 
@@ -74,7 +105,7 @@ namespace RentTool.ViewModels
                         name = tool.toolName,
                         image = tool.pictureUrl,
                         pricePerDay = tool.toolPrice,
-                        distance = 10.0f
+                        distance = miles
                     }) ;
                 }
 

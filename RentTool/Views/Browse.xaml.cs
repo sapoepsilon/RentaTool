@@ -22,7 +22,6 @@ namespace RentTool
 
         void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)
         {
-            string current = (e.CurrentSelection.FirstOrDefault() as CardTool)?.id;
             string selectedID = (e.CurrentSelection.FirstOrDefault() as CardTool)?.id;
             Navigation.PushAsync(new Views.ToolDetail(selectedID));
         }
