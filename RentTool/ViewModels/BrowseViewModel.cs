@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Windows.Input;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
 using RentTool.Models;
@@ -13,7 +15,6 @@ namespace RentTool.ViewModels
     // Source: https://almirvuk.blogspot.com/2016/12/xamarinforms-simple-mvvm-binding-example.html
     public class BrowseViewModel : INotifyPropertyChanged
     {
-
         public string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         private ObservableCollection<CardTool> items;
 
@@ -31,12 +32,12 @@ namespace RentTool.ViewModels
         [Obsolete]
         public BrowseViewModel()
         {
+
             QueryRequest();
             Items = new ObservableCollection<CardTool>() {
         };
 
         }
-
         [Obsolete]
         public async void QueryRequest()
         {
@@ -53,17 +54,14 @@ namespace RentTool.ViewModels
                 
                 foreach (var tool in yourModels)
                 {
-                    Console.WriteLine(tool.toolName);
-                    Console.WriteLine(tool.pictureUrl);
-                    Console.WriteLine(tool.toolPrice);
-
                     Items.Add(new CardTool()
                     {
+                        id = tool.toolID,
                         name = tool.toolName,
                         image = tool.pictureUrl,
                         pricePerDay = tool.toolPrice,
                         distance = 10.0f
-                    });
+                    }) ;
                 }
 
             }
@@ -72,5 +70,7 @@ namespace RentTool.ViewModels
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
         }
+
+        
     }
 }

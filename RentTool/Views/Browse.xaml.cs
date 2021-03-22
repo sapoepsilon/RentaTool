@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using RentTool.Models;
 using RentTool.ViewModels;
 using Xamarin.Forms;
 
@@ -18,5 +20,14 @@ namespace RentTool
             BindingContext = new BrowseViewModel();
         }
 
+        void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)
+        {
+            string previous = (e.PreviousSelection.FirstOrDefault() as CardTool)?.id;
+            string current = (e.CurrentSelection.FirstOrDefault() as CardTool)?.id;
+
+            Console.WriteLine("hereeee");
+            Console.WriteLine(previous);
+            Console.WriteLine(current);
+        }
     }
 }
