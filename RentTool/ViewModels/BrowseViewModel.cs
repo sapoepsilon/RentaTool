@@ -28,87 +28,11 @@ namespace RentTool.ViewModels
             }
         }
 
-        //public static ObservableCollection<CardTool> Items = new ObservableCollection<CardTool>
-        // {
-
-        //new CardTool()
-        //        {
-        //            name = "Drill",
-        //            image = "drill.jpg",
-        //            pricePerDay = "oi",
-        //            distance = 1.7f
-        //        }
-        // };
-
-        //public static ObservableCollection<CardTool> itemTools
-        //{
-        //    get { return Items; }
-
-        //}
-
         [Obsolete]
         public BrowseViewModel()
         {
             QueryRequest();
-            //Items = new ObservableCollection<CardTool>();
-
-
             Items = new ObservableCollection<CardTool>() {
-            //new CardTool()
-            //{
-            //    name = "Drill",
-            //    image = "drill.jpg",
-            //    pricePerDay = "t",
-            //    distance = 1.7f
-            //},
-            //  new CardTool()
-            //{
-            //    name = "Saw",
-            //    image = "saw.png",
-            //    pricePerDay = "t",
-            //    distance = 4.2f
-            //},
-            //  new CardTool()
-            //{
-            //    name = "Pliers",
-            //    image = "pliers.jpg",
-            //    pricePerDay = "t",
-            //    distance = 6.4f
-            //},
-            //  new CardTool()
-            //{
-            //    name = "Hammer",
-            //    image = "hammer.png",
-            //    pricePerDay = "t",
-            //    distance = 8.3f
-            //},new CardTool()
-            //{
-            //    name = "Drill",
-            //    image = "drill.jpg",
-            //    pricePerDay = "t",
-            //    distance = 1.7f
-            //},
-            //  new CardTool()
-            //{
-            //    name = "Saw",
-            //    image = "saw.png",
-            //    pricePerDay = "t",
-            //    distance = 4.2f
-            //},
-            //  new CardTool()
-            //{
-            //    name = "Pliers",
-            //    image = "pliers.jpg",
-            //    pricePerDay = "t",
-            //    distance = 6.4f
-            //},
-            //  new CardTool()
-            //{
-            //    name = "Hammer",
-            //    image = "hammer.png",
-            //    pricePerDay = "t",
-            //    distance = 8.3f
-            //}
         };
 
         }
@@ -116,7 +40,6 @@ namespace RentTool.ViewModels
         [Obsolete]
         public async void QueryRequest()
         {
-            Console.WriteLine("YAYYYYYYYYYYYYYYYY");
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
 
             try
@@ -142,8 +65,6 @@ namespace RentTool.ViewModels
                         distance = 10.0f
                     });
                 }
-
-                Console.WriteLine("mmmmmmmmmmmm");
 
             }
             catch (Exception ex)
