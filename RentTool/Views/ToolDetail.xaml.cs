@@ -16,12 +16,12 @@ namespace RentTool.Views
         public string toolQuery;
         private string toolID;
 
-
+        [Obsolete]
         public ToolDetail(string id)
         {
             InitializeComponent();
             this.toolID = id;
-        
+            QueryRequest();
         }
 
         [Obsolete]
