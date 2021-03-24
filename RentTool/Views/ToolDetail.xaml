@@ -5,7 +5,10 @@
     <ContentPage.Content>
         <StackLayout>
             <Image x:Name="ToolImage" HeightRequest="300" WidthRequest="100"></Image>
-            <Label x:Name="ToolName" FontSize="Header"></Label>
+            <Label x:Name="ToolName" FontSize="Large" TextColor="Black" ></Label>
+            <Label x:Name= "ToolPrice" FontSize="Medium" TextColor="Gray"></Label>
+            <Label x:Name="ToolDescription" FontSize="Small" TextColor="LightGray"></Label>
+            <Button Text="RENT" BackgroundColor="Green"></Button>
         </StackLayout>
         
     </ContentPage.Content>

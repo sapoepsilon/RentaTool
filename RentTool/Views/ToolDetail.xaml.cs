@@ -41,7 +41,8 @@ namespace RentTool.Views
 
                 ToolName.Text = QueryObject.toolName;
                 ToolImage.Source = QueryObject.pictureUrl;
-
+                ToolPrice.Text = QueryObject.toolPrice;
+                ToolDescription.Text = QueryObject.toolDescription;
             }
             catch (Exception ex)
             {
