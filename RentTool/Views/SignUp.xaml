@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.SignUp">
-        <ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.SignUp"
+             Visual="iOS">
+    
+    <ContentPage.Content>
         <ScrollView>
-          <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical">
+            <Frame>
+            <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical" Visual="Material">
             <Label Text="Sign Up" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Large"/>
             <Entry Placeholder="First Name"  x:Name="userFirstName"></Entry>
             <Entry Placeholder="Last Name"  x:Name="userLastName"></Entry>
@@ -20,6 +23,7 @@
             <Button BackgroundColor="Green" TextColor="White" Text="Signup" Clicked="signupbutton_Clicked" x:Name="signupbutton"/>
             <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Gray"/>
           </StackLayout>
+            </Frame>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
