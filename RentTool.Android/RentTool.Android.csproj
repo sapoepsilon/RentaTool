@@ -85,6 +85,27 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\americanexpresslogo.png" />
+    <AndroidResource Include="Resources\drawable\drill.jpg" />
+    <AndroidResource Include="Resources\drawable\hammer.png" />
+    <AndroidResource Include="Resources\drawable\ic_amex.png" />
+    <AndroidResource Include="Resources\drawable\ic_amex_blue.png" />
+    <AndroidResource Include="Resources\drawable\ic_amex_light.png" />
+    <AndroidResource Include="Resources\drawable\ic_chip.png" />
+    <AndroidResource Include="Resources\drawable\ic_cvv.png" />
+    <AndroidResource Include="Resources\drawable\ic_date.png" />
+    <AndroidResource Include="Resources\drawable\ic_dinersclub.png" />
+    <AndroidResource Include="Resources\drawable\ic_dinersclub_white.png" />
+    <AndroidResource Include="Resources\drawable\ic_discover.png" />
+    <AndroidResource Include="Resources\drawable\ic_discover_light.png" />
+    <AndroidResource Include="Resources\drawable\ic_jcb.png" />
+    <AndroidResource Include="Resources\drawable\ic_mastercard.png" />
+    <AndroidResource Include="Resources\drawable\ic_mastercard_white.png" />
+    <AndroidResource Include="Resources\drawable\ic_visa.png" />
+    <AndroidResource Include="Resources\drawable\ic_visa_white.png" />
+    <AndroidResource Include="Resources\drawable\nocards.png" />
+    <AndroidResource Include="Resources\drawable\pliers.jpeg" />
+    <AndroidResource Include="Resources\drawable\saw.png" />
     <AndroidResource Include="Resources\layout\Tabbar.xml" />
     <AndroidResource Include="Resources\layout\Toolbar.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
