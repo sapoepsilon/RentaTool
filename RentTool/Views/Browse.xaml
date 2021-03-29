@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.Browse" Visual="iOS" >
     <ContentPage.Content>
 
-        <Grid Margin="10,20,10,10">
+        <Grid Margin="10,30,10,10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -15,14 +15,12 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
+            
+            <SearchBar Placeholder="Search a tool..." Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-            <SearchBar Placeholder="Search a tool..." Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-
-            <Label Text="Tools" Grid.Row="2" Grid.Column="0" Margin="0,10,0,0" FontAttributes="Bold"/>
-            <Label Text="F" Grid.Row="2" Grid.Column="1" Margin="0,10,5,0"/>
-            <Label Text="D" Grid.Row="2" Grid.Column="2" Margin="0,10,0,0"/>
-
-            <Label Text="Tools" Grid.Row="2" Grid.Column="0" Margin="0,10,0,0" FontAttributes="Bold"/>
+            <Label Text="Tools" Grid.Row="1" Grid.Column="0" Margin="20,10,0,0" FontAttributes="Bold" FontSize="25"/>
+            <Label Text="F" Grid.Row="1" Grid.Column="1" Margin="0,10,5,0"/>
+            <Label Text="D" Grid.Row="1" Grid.Column="2" Margin="0,10,0,0"/>
 
             <CollectionView ItemsSource="{Binding Items}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" ItemsLayout="VerticalGrid, 2" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
                 <CollectionView.ItemTemplate>
@@ -42,18 +40,18 @@
                     Grid.Row="0"
                Source="{Binding image}"
                        Aspect="Fill"
-                       HeightRequest="90"
-                       WidthRequest="90" />
+                       HeightRequest="110"
+                       WidthRequest="110" />
                             <Label Grid.Row="1" Grid.Column="0"
                        Text="{Binding name}"
-                       FontAttributes="Bold" />
+                       FontAttributes="Bold" FontSize="18"/>
                             <Label Grid.Row="1" Grid.Column="1"
                        Text="{Binding distance, StringFormat='{0:0.0}'}"
-                       FontAttributes="Italic" FontSize="12" VerticalOptions="Center" />
+                       FontAttributes="Italic" FontSize="10" VerticalOptions="Center" />
                             <Label Grid.Row="2"
                        Grid.Column="0"
                        Text="{Binding pricePerDay, StringFormat='${0:N}'}"      
-                       VerticalOptions="End" />
+                       VerticalOptions="End" TextColor="Green" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

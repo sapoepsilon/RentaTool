@@ -184,6 +184,7 @@
     <BundleResource Include="Resources\Default-Portrait@2x.png" />
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default@2x.png" />
+    <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Resources\ic_amex.png" />
     <BundleResource Include="Resources\ic_amex@2x.png" />
     <BundleResource Include="Resources\ic_amex@3x.png" />

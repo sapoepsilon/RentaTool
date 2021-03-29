@@ -6,7 +6,7 @@
         <ScrollView HeightRequest="3000">
 
             <StackLayout>
-                <Label Text="My Account" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Label Text="My Account" Margin="10, 30, 10, 20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="18"/>
 
                 <Entry Placeholder="Firstname " x:Name="userFirstName" />
                 <Entry Placeholder="Last Name" x:Name="userLastName" />
@@ -15,13 +15,13 @@
                 <Entry Placeholder="Change Password" x:Name="UserNewPassword" IsPassword="True" />
                 <Entry Placeholder="Zip code" x:Name="zip" Keyboard="Numeric" />
 
-                <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                <Label Text="Credit Card Information" Margin="10, 30, 10, 20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand "
                        FontSize="Medium" />
                 <Entry Placeholder="Number" x:Name="ccNumber" Keyboard="Numeric" />
                 <Entry Placeholder="CVV" x:Name="ccCvv" Keyboard="Numeric" />
                 <Entry Placeholder="(mm/yy)" x:Name="ccMonthYear" Keyboard="Numeric" />
 
-                <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
+                <Grid Margin="10, 0, 10, 20" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200" />
 
@@ -31,12 +31,12 @@
                         <RowDefinition Height="35" />
                     </Grid.RowDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" Text="UPDATE" Clicked="UpdateClicked" BackgroundColor="Green" />
+                    <Button Grid.Row="0" Grid.Column="0" Text="UPDATE" Clicked="UpdateClicked" BackgroundColor="Green" TextColor="White" CornerRadius="20"/>
                     <Button Grid.Row="0" Grid.Column="1" Text="Change Password" Clicked="ChangeClicked"
-                            BackgroundColor="Blue" />
+                            BackgroundColor="Blue" TextColor="White" CornerRadius="20"/>
                 </Grid>
 
-                <Grid Margin="10, 10, 10, 10" ColumnSpacing="10">
+                <Grid Margin="10, 15, 10, 10" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200" />
                     </Grid.ColumnDefinitions>
@@ -45,10 +45,10 @@
                         <RowDefinition Height="35" />
                     </Grid.RowDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="1" CornerRadius="15" Text="Add Item" Clicked="Button_Clicked"
+                    <Button Grid.Row="0" Grid.Column="1" CornerRadius="20" Text="Add Item" Clicked="Button_Clicked"
                             BorderColor="Green" BorderWidth="1" TextColor="Green"  BackgroundColor="White" />
-                    <Label Grid.Row="0" Grid.Column="0" Text="My Tools: " WidthRequest="15" TextColor="White"
-                           FontSize="Large" BackgroundColor="Green" Opacity="70" />
+                    <Label Grid.Row="0" Grid.Column="0" Text="My Tools" WidthRequest="15" TextColor="White"
+                           FontSize="Large" BackgroundColor="Green" Opacity="70" HorizontalTextAlignment="Center" />
                 </Grid>
 
                 <ListView x:Name="toolName" HeightRequest="150">
@@ -87,7 +87,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White"
-                        Clicked="Logout_Clicked" />
+                        Clicked="Logout_Clicked" CornerRadius="20"/>
             </StackLayout>
         </ScrollView>
 

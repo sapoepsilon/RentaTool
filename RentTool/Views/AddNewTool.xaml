@@ -3,11 +3,11 @@
         <ContentPage.Content>
             <ScrollView>
             <StackLayout>
-            <Label Text="Add New Tool" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            <Entry Placeholder="Name: " Margin="10,10,10,10" x:Name="toolName"/>
+            <Label Text="Add New Tool" Margin="10,30,10,10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="18" />
+            <Entry Placeholder="Name: " Margin="10,0,10,10" x:Name="toolName"/>
             <Entry Placeholder="Price: " Margin="10,10,10,10" x:Name="toolPrice"/>
             <Entry Placeholder="Description: " Margin="10,10,10,10" x:Name = "toolDescription"/>
-            <Entry Placeholder="Address: House street city state county no commas " Margin="10,10,10,10" x:Name="toolAddress"/>
+            <Entry Placeholder="Address: Street City State Country (No Commas)" Margin="10,10,10,10" x:Name="toolAddress"/>
             <Entry Placeholder="Payment: " Margin="10,10,10,10" x:Name="toolPayment"/>
             <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
@@ -22,7 +22,7 @@
             <Button Grid.Row="0"  Grid.Column="1" Text="choose a Pic" x:Name="addPic" Background="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="AddPic_OnClicked"  />
                             </Grid>
             <Image x:Name="imageOfTheTool" HeightRequest="150" />
-            <Button Text="Add Tool" Clicked="AddToolButton_Clicked" />
+            <Button Text="Add Tool" Clicked="AddToolButton_Clicked" CornerRadius="20" BackgroundColor="Black" TextColor="White"/>
     </StackLayout>
                 </ScrollView>
         </ContentPage.Content>
