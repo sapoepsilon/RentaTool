@@ -4,9 +4,10 @@
              x:Class="RentTool.Views.ToolDetail">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="ToolImage" HeightRequest="300" HorizontalOptions="FillAndExpand"></Image>
-            <Label x:Name="ToolName" FontSize="Large" TextColor="Green"></Label>
-            <Label x:Name="ToolDiscription" FontSize="Subtitle" TextColor="Black" />
+            <Image x:Name="ToolImage" HeightRequest="300" WidthRequest="100"></Image>
+            <Label x:Name="ToolName" FontSize="Large" TextColor="Black" ></Label>
+            <Label x:Name= "ToolPrice" FontSize="Medium" TextColor="Gray"></Label>
+            <Label x:Name="ToolDescription" FontSize="Small" TextColor="LightGray"></Label>
             <Button x:Name="rentButton" HorizontalOptions="Center" WidthRequest="50" BackgroundColor="Green" Clicked="RentButton_OnClicked" />
         </StackLayout>
         

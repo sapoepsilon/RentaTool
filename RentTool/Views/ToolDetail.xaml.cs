@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using RentTool.Views;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
 using RentTool.Models;
@@ -12,7 +11,7 @@ namespace RentTool.Views
     public partial class ToolDetail : ContentPage
 
     {
-        private string UserID;
+        public string UserID;
         string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string toolQuery;
         private string toolID;
@@ -41,8 +40,8 @@ namespace RentTool.Views
                 
                 ToolName.Text = QueryObject.toolName;
                 ToolImage.Source = QueryObject.pictureUrl;
-                ToolDiscription.Text = QueryObject.toolDescription;
-
+                ToolPrice.Text = "$" + QueryObject.toolPrice;
+                ToolDescription.Text =  QueryObject.toolDescription;
             }
             catch (Exception ex)
             {
@@ -58,6 +57,7 @@ namespace RentTool.Views
         }
     }
 }
+
 
 
 
