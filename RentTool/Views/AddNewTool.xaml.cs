@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using Firebase.Auth;
 using Firebase.Storage;
 using Newtonsoft.Json;
@@ -77,8 +78,9 @@ namespace RentTool
                     .Child(photo.FileName)
                     .PutAsync(stream);
 
-                task.Progress.ProgressChanged += (s, ex) => Console.WriteLine($"Progress: {ex.Percentage} %");
-
+                
+                task.Progress.ProgressChanged += (s, ex) => UserDialogs.Instance.Progress($"Progress: {ex.Percentage} %");
+                
                var url = await task;
 
                 await CrossCloudFirestore.Current
@@ -89,6 +91,8 @@ namespace RentTool
 
                 await App.Current.MainPage.DisplayAlert("Alert",
                     "Your tool has been created with the tool id: " + IDTool, "Ok");
+                
+                UserDialogs.Instance.Progress().Hide();
 
                 MessagingCenter.Send<AddNewTool>(this, "Refresh");
 
