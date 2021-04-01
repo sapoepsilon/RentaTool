@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
-using RentTool.Models;
 using Xamarin.Forms;
 
 namespace RentTool.Views
 {
-    public partial class ToolDetail : ContentPage
-
+    public partial class ToolQuote : ContentPage
     {
+
         public string UserID;
         string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string toolQuery;
         private string toolID;
 
         [Obsolete]
-        public ToolDetail(string id)
+
+        public ToolQuote(string id)
         {
             InitializeComponent();
             this.toolID = id;
@@ -37,29 +36,31 @@ namespace RentTool.Views
                     .GetAsync();
 
                 var QueryObject = document.ToObject<Models.toolQuery>();
-                
+
                 ToolName.Text = QueryObject.toolName;
                 ToolImage.Source = QueryObject.pictureUrl;
-                ToolPrice.Text = "$" + QueryObject.toolPrice;
-                ToolDescription.Text =  QueryObject.toolDescription;
+
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             }
-                
-            
+
+
         }
 
-        private void PickDateButton_OnClicked(object sender, EventArgs e)
+        private void RentButton_OnClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.ToolQuote(toolID));
+            Navigation.PushAsync(new Views.CreditCardPage(toolID));
         }
+
+        DatePicker datePicker = new DatePicker
+        {
+            MinimumDate = new DateTime(2021, 1, 1),
+            MaximumDate = new DateTime(2022, 12, 31),
+            Date = new DateTime(2021, 1,1)
+        };
     }
 }
 
-
-
-
-        
 
