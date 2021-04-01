@@ -87,6 +87,7 @@ namespace RentTool.ViewModels
                 var group = await CrossCloudFirestore.Current
                                      .Instance
                                      .CollectionGroup("tools")
+                                     .WhereEqualsTo("isAvailable", true)
                                      .GetAsync();
 
                 var yourModels = group.ToObjects<toolQuery>();
@@ -123,12 +124,6 @@ namespace RentTool.ViewModels
                         Console.WriteLine("SOMETHING HAPPENED WITH GEOLOCATION");
                     }
 
-
-
-                    // 2) Grab tool's location (lat, long)
-
-                    // 3) Calculate distance and reference to the new CardTool
-
                     Items.Add(new CardTool()
                     {
                         id = tool.toolID,
@@ -136,7 +131,7 @@ namespace RentTool.ViewModels
                         image = tool.pictureUrl,
                         pricePerDay = tool.toolPrice,
                         distance = miles
-                    }) ;
+                    });
                 }
 
             }
