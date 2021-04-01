@@ -82,11 +82,30 @@ namespace RentTool.Views
             {
                 if (isTrasacitonSuccess)
                 {
+                    updateToolAvailability(this.toolID);
                     UserDialogs.Instance.Alert("Success", "Payment has been made", "Ok");
                     UserDialogs.Instance.HideLoading();
                 }
             }
 
+        }
+
+        async private void updateToolAvailability(String toolID)
+        {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
+            try
+            {
+                await CrossCloudFirestore.Current
+                         .Instance
+                         .Collection("tools")
+                         .Document(toolID)
+                         .UpdateAsync(new { isAvailable = false });
+
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+            }
         }
 
         private async void displayPrice()
