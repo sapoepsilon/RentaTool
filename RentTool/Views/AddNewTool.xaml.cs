@@ -54,6 +54,7 @@ namespace RentTool
                                 toolDescription = toolDescription.Text,
                                 toolPayment = toolPayment.Text,
                                 toolAddress = toolAddress.Text,
+                                isAvailable = true,
                                 UserId = userId,
                             });
                         IDTool = addTool.Id;
