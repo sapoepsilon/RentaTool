@@ -44,8 +44,9 @@ namespace RentTool.Views
 
         private async void Purchase_OnClicked(object sender, EventArgs e)
         {
-            PaymentAsync();
-            await Navigation.PushAsync( new Browse());
+            //var previousPage = Navigation.NavigationStack.LastOrDefault();
+            //Navigation.RemovePage(previousPage);
+            await PaymentAsync();
 
         }
 
@@ -66,6 +67,7 @@ namespace RentTool.Views
                     if (Token != null)
                     {
                         isTrasacitonSuccess = await makePayment();
+
                     }
                     else
                     {
@@ -83,9 +85,12 @@ namespace RentTool.Views
                 if (isTrasacitonSuccess)
                 {
                     updateToolAvailability(this.toolID);
-                    UserDialogs.Instance.Alert("Success", "Payment has been made", "Ok");
+                    await Navigation.PushAsync(new Browse());
+                    //UserDialogs.Instance.Alert("Success", "Payment has been made", "Ok");
                     UserDialogs.Instance.HideLoading();
                 }
+
+
             }
 
         }
