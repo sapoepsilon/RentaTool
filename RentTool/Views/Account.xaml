@@ -3,31 +3,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentTool.Account" Visual="material">
     <ContentPage.Content>
-        <Frame
-            BorderColor="#e0a85d"
-            HasShadow="True"
-            CornerRadius="12"
-            VerticalOptions="Fill"
-            HorizontalOptions="Fill">
-            <Frame.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#dc8845"
-                                  Offset="0.1" />
-                    <GradientStop Color="#e0a85d"
-                                  Offset="1.0" />
-                </RadialGradientBrush>
-            </Frame.Background>
         <ScrollView HeightRequest="3000">
-
+         
             <StackLayout>
                 <Label Text="My Account" Margin="10, 30, 10, 20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="18"/>
 
-                <Entry Placeholder="Firstname " PlaceholderColor="White" TextColor="White" x:Name="userFirstName" />
-                <Entry Placeholder="Last Name" PlaceholderColor="White" TextColor="White"  x:Name="userLastName" />
-                <Entry Placeholder="Phone" PlaceholderColor="White" TextColor="White"  x:Name="userPhone" Keyboard="Numeric" />
-                <Entry Placeholder="E-mail" PlaceholderColor="White" TextColor="White"  x:Name="UserNewEmail" Keyboard="Plain" />
-                <Entry Placeholder="Change Password" PlaceholderColor="White" TextColor="White"   x:Name="UserNewPassword" IsPassword="True" />
-                <Entry Placeholder="Zip code" PlaceholderColor="White" TextColor="White"  x:Name="zip" Keyboard="Numeric" />
+                <Entry Placeholder="Firstname " TextColor="Black" x:Name="userFirstName" />
+                <Entry Placeholder="Last Name" TextColor="Black"  x:Name="userLastName" />
+                <Entry Placeholder="Phone"  TextColor="Black"  x:Name="userPhone" Keyboard="Numeric" />
+                <Entry Placeholder="E-mail"  TextColor="Black"  x:Name="UserNewEmail" Keyboard="Plain" />
+                <Entry Placeholder="Change Password" TextColor="Black"   x:Name="UserNewPassword" IsPassword="True" />
+                <Entry Placeholder="Zip code" TextColor="Black"  x:Name="zip" Keyboard="Numeric" />
                 
                 <Grid Margin="10, 0, 10, 20" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
@@ -59,12 +45,11 @@
                            FontSize="Large" BackgroundColor="Green" Opacity="70" HorizontalTextAlignment="Center" />
                 </Grid>
 
-                <ListView x:Name="toolName" HeightRequest="150" ItemSelected="ToolName_OnItemSelected" Visual="material"  BackgroundColor="LightYellow">
+                <ListView x:Name="toolName"  HeightRequest="400" ItemSelected="ToolName_OnItemSelected" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
-
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
@@ -86,7 +71,6 @@
                                             Clicked="Delete_Clicked"
                                              />
                                 </Grid>
-                                
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -95,6 +79,5 @@
                         Clicked="Logout_Clicked" CornerRadius="20"/>
             </StackLayout>
         </ScrollView>
-    </Frame>
     </ContentPage.Content>
 </ContentPage>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Firebase.Auth;
 using Newtonsoft.Json;
 using RentTool.Views;
@@ -16,6 +18,7 @@ namespace RentTool
         public SignIn()
         {
             InitializeComponent();
+            RotateElement(logoImage, CancellationToken.None);
         }
 
         async void loginbutton_Clicked(System.Object sender, System.EventArgs e)
@@ -46,6 +49,14 @@ namespace RentTool
         {
             Navigation.PushAsync(new SignUp());
 
+        }
+        private async Task RotateElement(VisualElement element, CancellationToken cancellation)
+        {
+            while (!cancellation.IsCancellationRequested)
+            {
+                await logoImage.RotateTo(360, 1200, Easing.Linear);
+                await logoImage.RotateTo(0, 0); // reset to initial position
+            }
         }
     } 
 

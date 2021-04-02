@@ -30,6 +30,7 @@ namespace RentTool
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            
 
             // Function to vei
             GetProfileInformationAndRefreshToken();
