@@ -4,14 +4,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentTool.Views.EditTool">
     <ContentPage.Content>
+        <Frame
+            BorderColor="#e0a85d"
+            HasShadow="True"
+            CornerRadius="12"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+            <Frame.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#dc8845"
+                                  Offset="0.1" />
+                    <GradientStop Color="#e0a85d"
+                                  Offset="1.0" />
+                </RadialGradientBrush>
+            </Frame.Background>
         <StackLayout>
+            <Image x:Name="toolImage" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*" />
+                    <ColumnDefinition Width="30*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="Is your tool available? "></Label>
+                <Switch Grid.Column="1" x:Name="toolAvailibility" Toggled="ToolAvailibility_OnToggled" OnColor="Green" />
+            </Grid>
             <Label Text="Add New Tool" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            <Entry Placeholder="Name: " Margin="10,10,10,10" x:Name="toolName"/>
+            <Entry Placeholder="Name: "  Margin="10,10,10,10" x:Name="toolName"/>
             <Entry Placeholder="Price: " Margin="10,10,10,10" x:Name="toolPrice"/>
             <Entry Placeholder="Description: " Margin="10,10,10,10" x:Name = "toolDescription"/>
             <Entry Placeholder="Address: " Margin="10,10,10,10" x:Name="toolAddress"/>
             <Entry Placeholder="Payment: " Margin="10,10,10,10" x:Name="toolPayment"/>
-            <Button Text="Edit Tool" Clicked="EditToolButton_Clicked" />
+            <Button Text="Update Tool" TextColor="White" Clicked="EditToolButton_Clicked" BackgroundColor="DarkCyan"/>
         </StackLayout>
+            </Frame>
     </ContentPage.Content>
 </ContentPage>

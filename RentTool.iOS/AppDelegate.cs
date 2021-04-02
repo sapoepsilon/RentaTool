@@ -25,6 +25,7 @@ namespace RentTool.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.Forms.FormsMaterial.Init();
+            
             LoadApplication(new App());
             Firebase.Core.App.Configure();
 

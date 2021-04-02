@@ -29,11 +29,13 @@ namespace RentTool
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-
+            BarBackgroundColor = Color.DarkGoldenrod;
+            BarTextColor = Color.Wheat;
             //(new NavigationPage(new CampaignPage()) { Title = "Campaign", Icon = "tab.png", BackgroundColor = Color.Black });
             Children.Add((new NavigationPage(new Browse()) { Title = "Browse" }));
             Children.Add((new NavigationPage(new Account()) { Title = "Account" }));
         }
+        
     }
 }
 

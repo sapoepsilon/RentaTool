@@ -1,16 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.SignIn" Visual="iOS">
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentTool.SignIn" Visual="iOS">
     <ContentPage.Content>
         <ScrollView>
+            <Frame
+                BorderColor="#e0a85d"
+                HasShadow="True"
+                CornerRadius="12"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill">
+                <Frame.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#dc8845"
+                                      Offset="0.1" />
+                        <GradientStop Color="#e0a85d"
+                                      Offset="1.0" />
+                    </RadialGradientBrush>
+                </Frame.Background>
+                
 
-            <StackLayout Margin="20" VerticalOptions="CenterAndExpand" Spacing="20" Orientation="Vertical">
-                <Label Text="Sign in" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Large"/>
-                <Entry Placeholder="User  Email"  x:Name="UserLoginEmail" Keyboard="Plain"></Entry>
-                <Entry Placeholder="User Password"  x:Name="UserLoginPassword" IsPassword="True"></Entry>
-                <Button BackgroundColor="Green" Clicked="loginbutton_Clicked" TextColor="White" Text="Login" x:Name="loginbutton"/>
-                <Button Clicked="Reset_Clicked" TextColor="Blue" Text="Forgot Password?" x:Name="resetPassword" />
-                <Button Clicked="NavToSignUp_Clicked" TextColor="Black" BackgroundColor="Aqua" Text="Do not have an account? Sign up" x:Name="NavigateToSignUp" VerticalOptions="End" />
-            </StackLayout>
+                    <StackLayout Margin="20"  Spacing="20" Orientation="Vertical" Visual="Material">
+                        <Image 
+                            Source="https://icon-library.net/images/hammer-icon-png/hammer-icon-png-18.jpg" 
+                            HorizontalOptions="Start"/>
+                        <Label 
+                            Text="Sign in"  
+                            FontSize="Large"
+                            VerticalOptions="End"
+                            HorizontalOptions="Center"/>
+                         <Entry Placeholder="Email" TextColor="White"  BackgroundColor="Goldenrod"  PlaceholderColor="White" x:Name="UserLoginEmail" Keyboard="Plain" />
+                        <Entry Placeholder="Password" TextColor="White" BackgroundColor="Goldenrod" PlaceholderColor="White" x:Name="UserLoginPassword" IsPassword="True" />
+                         <Button BackgroundColor="Green" Clicked="loginbutton_Clicked" TextColor="White" Text="Login"
+                            x:Name="loginbutton" />
+                        <Button Clicked="Reset_Clicked" TextColor="White" BackgroundColor="Goldenrod" Text="Forgot Password?" x:Name="resetPassword" />
+                            <Button Clicked="NavToSignUp_Clicked" TextColor="White" BackgroundColor="Goldenrod"
+                            Text="Do not have an account? Sign up" x:Name="NavigateToSignUp" VerticalOptions="End" />
+                </StackLayout>
+            </Frame>
         </ScrollView>
+
     </ContentPage.Content>
+
 </ContentPage>

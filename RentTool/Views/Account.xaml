@@ -1,19 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RentTool.Account">
+             x:Class="RentTool.Account" Visual="material">
     <ContentPage.Content>
+        <Frame
+            BorderColor="#e0a85d"
+            HasShadow="True"
+            CornerRadius="12"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+            <Frame.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#dc8845"
+                                  Offset="0.1" />
+                    <GradientStop Color="#e0a85d"
+                                  Offset="1.0" />
+                </RadialGradientBrush>
+            </Frame.Background>
         <ScrollView HeightRequest="3000">
 
             <StackLayout>
                 <Label Text="My Account" Margin="10, 30, 10, 20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="18"/>
 
-                <Entry Placeholder="Firstname " x:Name="userFirstName" />
-                <Entry Placeholder="Last Name" x:Name="userLastName" />
-                <Entry Placeholder="Phone" x:Name="userPhone" Keyboard="Numeric" />
-                <Entry Placeholder="E-mail" x:Name="UserNewEmail" Keyboard="Plain" />
-                <Entry Placeholder="Change Password" x:Name="UserNewPassword" IsPassword="True" />
-                <Entry Placeholder="Zip code" x:Name="zip" Keyboard="Numeric" />
+                <Entry Placeholder="Firstname " PlaceholderColor="White" TextColor="White" x:Name="userFirstName" />
+                <Entry Placeholder="Last Name" PlaceholderColor="White" TextColor="White"  x:Name="userLastName" />
+                <Entry Placeholder="Phone" PlaceholderColor="White" TextColor="White"  x:Name="userPhone" Keyboard="Numeric" />
+                <Entry Placeholder="E-mail" PlaceholderColor="White" TextColor="White"  x:Name="UserNewEmail" Keyboard="Plain" />
+                <Entry Placeholder="Change Password" PlaceholderColor="White" TextColor="White"   x:Name="UserNewPassword" IsPassword="True" />
+                <Entry Placeholder="Zip code" PlaceholderColor="White" TextColor="White"  x:Name="zip" Keyboard="Numeric" />
                 
                 <Grid Margin="10, 0, 10, 20" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
@@ -45,7 +59,7 @@
                            FontSize="Large" BackgroundColor="Green" Opacity="70" HorizontalTextAlignment="Center" />
                 </Grid>
 
-                <ListView x:Name="toolName" HeightRequest="150">
+                <ListView x:Name="toolName" HeightRequest="150" ItemSelected="ToolName_OnItemSelected" Visual="material"  BackgroundColor="LightYellow">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -57,25 +71,22 @@
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="50*" />
                                         <ColumnDefinition Width="30*" />
-                                        <ColumnDefinition Width="30*" />
-                                        <ColumnDefinition Width="90" />
+                                        <ColumnDefinition Width="30" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="1" Text="{Binding toolName}" FontAttributes="Bold"
+                                    <Label Grid.Column="1" Text="{Binding toolName}" LineBreakMode="WordWrap"  FontAttributes="Bold"
                                            TextColor="black" FontSize="Default" Padding="10" />
-                                    <Label Grid.Column="2" Text="{Binding toolPrice}" TextColor="Black" Padding="10" />
+                                    <Label Grid.Column="2" Text="{Binding toolPrice}" FontSize="Small"  TextColor="Black" Padding="10" />
                                     <Image Grid.Column="0" Source="{Binding pictureUrl}" />
-                                    <Button Grid.Column="3" FontFamily="Material Icons" Text="Delete"
-                                            FontAttributes="None"
+                                    <ImageButton Grid.Column="3" Source="https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/33-512.png"
+                                            HeightRequest="30"
                                             BindingContext="{Binding toolID}" WidthRequest="20"
-                                            Clicked="Delete_Clicked" CornerRadius="30" TextColor="White" BackgroundColor="red"
-                                            CommandParameter="{Binding .}" />
+                                            Clicked="Delete_Clicked"
+                                             />
                                 </Grid>
-                                <ViewCell.ContextActions>
-                                    <MenuItem Text="Edit" BindingContext="{Binding toolID}"
-                                              Clicked="MenuItem_OnClicked" />
-                                </ViewCell.ContextActions>
+                                
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -84,6 +95,6 @@
                         Clicked="Logout_Clicked" CornerRadius="20"/>
             </StackLayout>
         </ScrollView>
-
+    </Frame>
     </ContentPage.Content>
 </ContentPage>

@@ -3,14 +3,28 @@
              xmlns:rentTool="clr-namespace:RentTool;assembly=RentTool"
              x:Class="RentTool.Views.ToolDetail">
     <ContentPage.Content>
+        <Frame
+            BorderColor="#e0a85d"
+            HasShadow="True"
+            CornerRadius="12"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+            <Frame.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#dc8845"
+                                  Offset="0.1" />
+                    <GradientStop Color="#e0a85d"
+                                  Offset="1.0" />
+                </RadialGradientBrush>
+            </Frame.Background>
         <StackLayout>
             <Image x:Name="ToolImage" Margin="0, 15, 0, 0" HeightRequest="300" WidthRequest="100"></Image>
-            <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Large" TextColor="Black" ></Label>
+            <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Large" FontAttributes="Bold" TextColor="Black" ></Label>
             <Label x:Name= "ToolPrice" Margin="10, 0, 0, 0" FontSize="Medium" TextColor="Green"></Label>
-            <Label x:Name="ToolDescription" Margin="10, 0, 0, 0" FontSize="Small" TextColor="Gray"></Label>
+            <Label x:Name="ToolDescription" Margin="10, 0, 0, 0" FontSize="Small" FontAttributes="Bold" TextColor="black"></Label>
             <Button x:Name="pickDateButton" Margin="0, 40, 0, 0" Text="Pick Dates" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="Green" Clicked="PickDateButton_OnClicked" CornerRadius="20" TextColor="White"/>
         </StackLayout>
-        
+        </Frame>
     </ContentPage.Content>
     
 </ContentPage>

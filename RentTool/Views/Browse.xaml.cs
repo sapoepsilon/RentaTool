@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RentTool.Models;
 using RentTool.ViewModels;
+using RentTool.Views;
 using Xamarin.Forms;
 
 namespace RentTool
@@ -17,6 +18,11 @@ namespace RentTool
             InitializeComponent();
 
             MessagingCenter.Subscribe<AddNewTool>(this, "Refresh", (s) => {
+                Refresh();
+                
+            });
+            MessagingCenter.Subscribe<EditTool>(this, "Refresh", (s) =>
+            {
                 Refresh();
             });
 

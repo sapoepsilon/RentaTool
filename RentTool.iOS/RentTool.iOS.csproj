@@ -233,6 +233,7 @@
     <BundleResource Include="Resources\ic_visa_white.png" />
     <BundleResource Include="Resources\ic_visa_white@2x.png" />
     <BundleResource Include="Resources\ic_visa_white@3x.png" />
+    <BundleResource Include="Resources\izzy.png" />
     <BundleResource Include="Resources\nocards.png" />
     <BundleResource Include="Resources\nocards@2x.png" />
     <BundleResource Include="Resources\nocards@3x.png" />

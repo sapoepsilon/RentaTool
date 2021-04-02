@@ -13,6 +13,7 @@ namespace RentTool.Models
         public string toolAddress { get; set; }
         public string toolID { get; set; }
         public string pictureUrl { get; set; }
+        public bool isAvailable { get; set; }
 
         public toolQuery()
         {

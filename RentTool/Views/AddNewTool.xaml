@@ -1,14 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.AddNewTool">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RentTool.AddNewTool" Visual="material">
         <ContentPage.Content>
-            <ScrollView>
-            <StackLayout>
+                <ScrollView>
+                        <Frame
+                                BorderColor="#e0a85d"
+                                HasShadow="True"
+                                CornerRadius="12"
+                                VerticalOptions="Fill"
+                                HorizontalOptions="Fill">
+                                <Frame.Background>
+                                        <RadialGradientBrush>
+                                                <GradientStop Color="#dc8845"
+                                                              Offset="0.1" />
+                                                <GradientStop Color="#e0a85d"
+                                                              Offset="1.0" />
+                                        </RadialGradientBrush>
+                                </Frame.Background>
+                        <StackLayout>
             <Label Text="Add New Tool" Margin="10,30,10,10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="18" />
-            <Entry Placeholder="Name: " Margin="10,0,10,10" x:Name="toolName"/>
-            <Entry Placeholder="Price: " Margin="10,10,10,10" x:Name="toolPrice"/>
-            <Entry Placeholder="Description: " Margin="10,10,10,10" x:Name = "toolDescription"/>
-            <Entry Placeholder="Address: Street City State Country (No Commas)" Margin="10,10,10,10" x:Name="toolAddress"/>
-            <Entry Placeholder="Payment: " Margin="10,10,10,10" x:Name="toolPayment"/>
+            <Entry Placeholder="Name: " PlaceholderColor="White" TextColor="White"  Margin="10,0,10,10" x:Name="toolName"/>
+            <Entry Placeholder="Price: " PlaceholderColor="White" TextColor="White"   Margin="10,10,10,10" x:Name="toolPrice"/>
+            <Entry Placeholder="Description: " PlaceholderColor="White" TextColor="White"  Margin="10,10,10,10" x:Name = "toolDescription"/>
+            <Entry Placeholder="Address: Street City State Country (No Commas)" PlaceholderColor="White" TextColor="White"  Margin="10,10,10,10" x:Name="toolAddress"/>
+            <Entry Placeholder="Payment:" Margin="10,10,10,10" x:Name="toolPayment" PlaceholderColor="White" TextColor="White" />
             <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200" />
@@ -18,12 +32,13 @@
                             <RowDefinition Height="35" />
                     </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="take a Pic" x:Name="takePic"  Background="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="TakePic_OnClicked"/>
-            <Button Grid.Row="0"  Grid.Column="1" Text="choose a Pic" x:Name="addPic" Background="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="AddPic_OnClicked"  />
+            <Button Grid.Row="0" Grid.Column="0" Text="take a Pic" x:Name="takePic"  BackgroundColor="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="TakePic_OnClicked"/>
+            <Button Grid.Row="0"  Grid.Column="1" Text="choose a Pic" x:Name="addPic" BackgroundColor="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="AddPic_OnClicked"  />
                             </Grid>
             <Image x:Name="imageOfTheTool" HeightRequest="150" />
             <Button Text="Add Tool" Clicked="AddToolButton_Clicked" CornerRadius="20" BackgroundColor="Black" TextColor="White"/>
     </StackLayout>
+                                </Frame>
                 </ScrollView>
         </ContentPage.Content>
 </ContentPage>

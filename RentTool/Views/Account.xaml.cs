@@ -192,15 +192,27 @@ namespace RentTool
             }
         }
 
-        private void MenuItem_OnClicked(object sender, EventArgs e)
+        private async void ToolName_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             try
             {
-                Navigation.PushAsync(new EditTool(toolID));
+
+                var tool = (toolQuery)e.SelectedItem;
+        
+                try
+                {
+                    Navigation.PushAsync(new EditTool(tool.toolID));
+                }
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
+
+                }
+
             }
             catch (Exception ex)
             {
-                DisplayAlert("Title", "Something went wrong", "ok");
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
             }
         }
     }
