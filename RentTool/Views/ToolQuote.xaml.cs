@@ -51,15 +51,22 @@ namespace RentTool.Views
 
         private void RentButton_OnClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.CreditCardPage(toolID));
+           ;
+            Navigation.PushAsync(new Views.CreditCardPage(toolID, Recalculate()));
         }
 
-        DatePicker datePicker = new DatePicker
+        double Recalculate()
         {
-            MinimumDate = new DateTime(2021, 1, 1),
-            MaximumDate = new DateTime(2022, 12, 31),
-            Date = new DateTime(2021, 1,1)
-        };
+            TimeSpan timeSpan = endDatePicker.Date - startDatePicker.Date;
+
+            double date = timeSpan.Days;
+            return date;
+        }
+
+        private void OnDateSelected(object sender, DateChangedEventArgs e)
+        {
+            Recalculate();
+        }
     }
 }
 

@@ -8,10 +8,22 @@
          <StackLayout>
             <Image x:Name="ToolImage" Margin="0, 15, 0, 0" HeightRequest="300" WidthRequest="100"></Image>
             <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Large" TextColor="Black" ></Label>
-             <Label Text = "Start Date" FontSize="Medium" TextColor="Black" Margin="10,0,0,0"></Label>
-             <DatePicker Margin=" 10,0,0,0" MinimumDate="01/01/2021" MaximumDate="12/31/2022"/>
-             <Label Text="End Date" FontSize="Medium" TextColor="Black" Margin="10,0,0,0"></Label>
-             <DatePicker Margin=" 10,0,0,0" MinimumDate="01/01/2021" MaximumDate="12/31/2022"/>
+            
+             <Label Text="Start Date:" />
+
+             <DatePicker x:Name="startDatePicker"
+                         Format="D"
+                         Margin="30, 0, 0, 30"
+                         DateSelected="OnDateSelected" />
+
+             <Label Text="End Date:" />
+
+             <DatePicker x:Name="endDatePicker"
+                         MinimumDate="{Binding Source={x:Reference startDatePicker},
+                                          Path=Date}"
+                         Format="D"
+                         Margin="30, 0, 0, 30"
+                         DateSelected="OnDateSelected" />
             <Button x:Name="Total" Margin="0, 40, 0, 0" Text="Rent" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="Green" Clicked="RentButton_OnClicked" CornerRadius="20" TextColor="White"/>
         </StackLayout>
         </ScrollView>

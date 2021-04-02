@@ -44,7 +44,7 @@ namespace RentTool
                          .GetCollection("users")
                          .GetDocument(idUser)
                          .SetAsync(new { firstName = userFirstName.Text, lastName = userLastName.Text, zip = zip.Text,
-                         phone = userPhone.Text, creditCardNumber = ccNumber.Text, creditCardCvv = ccCvv.Text, creditCardExpiration = ccMonthYear.Text, toolID = toolId});
+                         phone = userPhone.Text});
 
                 await App.Current.MainPage.DisplayAlert("Alert", "Account Created! ✅", "Ok");
                 await Navigation.PushAsync(new MainContainerTabbedPage());

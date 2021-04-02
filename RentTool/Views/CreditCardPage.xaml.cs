@@ -10,6 +10,8 @@ using Acr.UserDialogs;
 using Firebase.Auth;
 using Newtonsoft.Json;
 using Plugin.CloudFirestore;
+using Plugin.FirebaseCloudMessaging;
+using Plugin.FirebaseCloudMessaging.Abstractions;
 using RentTool.Models;
 using RentTool.ViewModels;
 using Stripe;
@@ -29,16 +31,18 @@ namespace RentTool.Views
         private string toolID;
         private string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         private string userEmail;
+        private double date;
 
 
         private string stripeAPIKey =
             "pk_test_51IPy4cGrlGP6UBf685TcRd4arux8SmbLMDn5Rh7RytyEv3BRtkD5NOrMqCCLrn7zOoAmDoC7CA3ZQXFJfS3Gipe400oBatXkYI";
 
-        public CreditCardPage(string toolID)
+        public CreditCardPage(string toolID, double date)
         {
             InitializeComponent();
             this.BindingContext = new CreditCardViewModel();
             this.toolID = toolID;
+            this.date = date;
             displayPrice();
         }
 
@@ -67,7 +71,7 @@ namespace RentTool.Views
                     if (Token != null)
                     {
                         isTrasacitonSuccess = await makePayment();
-
+                        
                     }
                     else
                     {
@@ -126,7 +130,8 @@ namespace RentTool.Views
                     .GetAsync();
 
                 var getTool = ToolDocument.ToObject<Models.toolQuery>();
-                Purchase.Text ="$" + getTool.toolPrice;
+                double toolprice = double.Parse(getTool.toolPrice) * date;
+                Purchase.Text = "$" + toolprice.ToString();
             }
             catch (Exception ex)
             {

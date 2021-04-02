@@ -15,11 +15,6 @@
             <Entry Placeholder="Password"   x:Name="UserNewPassword" IsPassword="True"></Entry>
             <Entry Placeholder="Zip code"  x:Name="zip" Keyboard="Numeric"></Entry>
 
-            <Label Text="Credit Card Information" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
-            <Entry Placeholder="Number"  x:Name="ccNumber" Keyboard="Numeric"></Entry>
-            <Entry Placeholder="CVV"  x:Name="ccCvv" Keyboard="Numeric"></Entry>
-            <Entry Placeholder="(mm/yy)"  x:Name="ccMonthYear" Keyboard="Numeric"></Entry>
-
             <Button BackgroundColor="Green" TextColor="White" Text="Signup" Clicked="signupbutton_Clicked" x:Name="signupbutton"/>
             <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Gray"/>
           </StackLayout>

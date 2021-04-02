@@ -14,13 +14,7 @@
                 <Entry Placeholder="E-mail" x:Name="UserNewEmail" Keyboard="Plain" />
                 <Entry Placeholder="Change Password" x:Name="UserNewPassword" IsPassword="True" />
                 <Entry Placeholder="Zip code" x:Name="zip" Keyboard="Numeric" />
-
-                <Label Text="Credit Card Information" Margin="10, 30, 10, 20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand "
-                       FontSize="Medium" />
-                <Entry Placeholder="Number" x:Name="ccNumber" Keyboard="Numeric" />
-                <Entry Placeholder="CVV" x:Name="ccCvv" Keyboard="Numeric" />
-                <Entry Placeholder="(mm/yy)" x:Name="ccMonthYear" Keyboard="Numeric" />
-
+                
                 <Grid Margin="10, 0, 10, 20" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200" />

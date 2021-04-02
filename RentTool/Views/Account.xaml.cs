@@ -105,9 +105,6 @@ namespace RentTool
                 userFirstName.Text = QueryObject.firstName;
                 userLastName.Text = QueryObject.lastName;
                 userPhone.Text = QueryObject.phone;
-                ccCvv.Text = QueryObject.creditCardCvv;
-                ccNumber.Text = QueryObject.creditCardNumber;
-                ccMonthYear.Text = QueryObject.creditCardExpiration;
                 zip.Text = QueryObject.zip;
 
                 foreach (var toolsOfUser in QueryObject.toolID)

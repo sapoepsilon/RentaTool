@@ -150,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AppCenter.Push" Version="3.4.3" />
+    <PackageReference Include="Plugin.FirebaseCloudMessaging" Version="1.0.5" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.16-beta" />
     <PackageReference Include="Plugin.FirebaseStorage" Version="4.1.0" />
     <PackageReference Include="Stripe.net" Version="39.41.0" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
