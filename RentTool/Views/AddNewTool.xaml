@@ -18,11 +18,11 @@
                                 </Frame.Background>
                         <StackLayout>
             <Label Text="Add New Tool" Margin="10,30,10,10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="18" />
-            <Entry Placeholder="Name: " PlaceholderColor="White" TextColor="White"  Margin="10,0,10,10" x:Name="toolName"/>
-            <Entry Placeholder="Price: " PlaceholderColor="White" TextColor="White"   Margin="10,10,10,10" x:Name="toolPrice"/>
-            <Entry Placeholder="Description: " PlaceholderColor="White" TextColor="White"  Margin="10,10,10,10" x:Name = "toolDescription"/>
-            <Entry Placeholder="Address: Street City State Country (No Commas)" PlaceholderColor="White" TextColor="White"  Margin="10,10,10,10" x:Name="toolAddress"/>
-            <Entry Placeholder="Payment:" Margin="10,10,10,10" x:Name="toolPayment" PlaceholderColor="White" TextColor="White" />
+            <Entry Placeholder="Name: " PlaceholderColor="Black" TextColor="White"  Margin="10,0,10,10" x:Name="toolName"/>
+            <Entry Placeholder="Price: " PlaceholderColor="Black" TextColor="White"   Margin="10,10,10,10" x:Name="toolPrice"/>
+            <Entry Placeholder="Description: " PlaceholderColor="Black" TextColor="White"  Margin="10,10,10,10" x:Name = "toolDescription"/>
+            <Entry Placeholder="Address: Street City State Country (No Commas)" PlaceholderColor="White" TextColor="Black"  Margin="10,10,10,10" x:Name="toolAddress"/>
+            <Entry Placeholder="Payment:" Margin="10,10,10,10" x:Name="toolPayment" PlaceholderColor="White" TextColor="Black" />
             <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200" />

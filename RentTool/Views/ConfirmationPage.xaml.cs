@@ -39,6 +39,22 @@ namespace RentTool.Views
                 ToolName.Text = QueryObject.toolName;
                 ToolImage.Source = QueryObject.pictureUrl;
 
+                foreach (var toolOfUser in QueryObject.toolID)
+                {
+                    var documentUser = await CrossCloudFirestore.Current
+                    .Instance
+                    .GetCollection("user")
+                    .GetDocument(toolID)
+                    .GetAsync();
+                    var QueryObjectUser = document.ToObject<Models.user>();
+
+                    ToolName.Text = QueryObject.toolName;
+                    ToolImage.Source = QueryObject.pictureUrl;
+
+
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -47,5 +63,7 @@ namespace RentTool.Views
 
 
         }
+
+        
     }
 }

@@ -4,6 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RentTool.Views.EditTool">
     <ContentPage.Content>
+        <ScrollView>
+         <StackLayout>
         <Frame
             BorderColor="#e0a85d"
             HasShadow="True"
@@ -18,7 +20,8 @@
                                   Offset="1.0" />
                 </RadialGradientBrush>
             </Frame.Background>
-        <StackLayout>
+             </Frame>
+      
             <Image x:Name="toolImage" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Image>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -35,7 +38,8 @@
             <Entry Placeholder="Address: " Margin="10,10,10,10" x:Name="toolAddress"/>
             <Entry Placeholder="Payment: " Margin="10,10,10,10" x:Name="toolPayment"/>
             <Button Text="Update Tool" TextColor="White" Clicked="EditToolButton_Clicked" BackgroundColor="DarkCyan"/>
+           
         </StackLayout>
-            </Frame>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>
