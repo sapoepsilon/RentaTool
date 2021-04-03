@@ -51,6 +51,7 @@ namespace RentTool.Views
             //var previousPage = Navigation.NavigationStack.LastOrDefault();
             //Navigation.RemovePage(previousPage);
             await PaymentAsync();
+            Navigation.PushAsync(new Views.ConfirmationPage(toolID));
 
         }
 

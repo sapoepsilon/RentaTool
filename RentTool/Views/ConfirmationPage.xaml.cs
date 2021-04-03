@@ -6,9 +6,8 @@ using Xamarin.Forms;
 
 namespace RentTool.Views
 {
-    public partial class ToolQuote : ContentPage
+    public partial class ConfirmationPage : ContentPage
     {
-
         public string UserID;
         string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         public string toolQuery;
@@ -16,7 +15,7 @@ namespace RentTool.Views
 
         [Obsolete]
 
-        public ToolQuote(string id)
+        public ConfirmationPage(string id)
         {
             InitializeComponent();
             this.toolID = id;
@@ -48,26 +47,5 @@ namespace RentTool.Views
 
 
         }
-
-        private void RentButton_OnClicked(object sender, EventArgs e)
-        {
-
-            Navigation.PushAsync(new Views.CreditCardPage(toolID, Recalculate()));
-        }
-
-        double Recalculate()
-        {
-            TimeSpan timeSpan = endDatePicker.Date - startDatePicker.Date;
-
-            double date = timeSpan.Days;
-            return date;
-        }
-
-        private void OnDateSelected(object sender, DateChangedEventArgs e)
-        {
-            Recalculate();
-        }
     }
 }
-
-
