@@ -31,12 +31,12 @@
                             FontSize="Large"
                             VerticalOptions="End"
                             HorizontalOptions="Center"/>
-                         <Entry Placeholder="Email"  TextColor="White"  BackgroundColor="#ffbf58"  PlaceholderColor="White" x:Name="UserLoginEmail" Keyboard="Plain" />
+                         <Entry Placeholder="Email" TextColor="White"  BackgroundColor="#ffbf58"  PlaceholderColor="White" x:Name="UserLoginEmail" Keyboard="Plain" />
                         <Entry Placeholder="Password" TextColor="White" BackgroundColor="#ffbf58" PlaceholderColor="White" x:Name="UserLoginPassword" IsPassword="True" />
-                         <Button BackgroundColor="#679267" Clicked="loginbutton_Clicked" TextColor="White" Text="Login"
+                         <Button BackgroundColor="#679267" Clicked="loginbutton_Clicked" CornerRadius="20" TextColor="White" Text="Login"
                             x:Name="loginbutton" />
-                        <Button Clicked="Reset_Clicked" TextColor="White" BackgroundColor="#ffbf58" Text="Forgot Password?" x:Name="resetPassword" />
-                            <Button Clicked="NavToSignUp_Clicked" TextColor="White" BackgroundColor="#ffbf58"
+                        <Button Clicked="Reset_Clicked" TextColor="White" BackgroundColor="#ffbf58" CornerRadius="20" Text="Forgot Password?" x:Name="resetPassword" />
+                            <Button Clicked="NavToSignUp_Clicked" TextColor="White" BackgroundColor="#ffbf58" CornerRadius="20"
                             Text="Do not have an account? Sign up" x:Name="NavigateToSignUp" VerticalOptions="End" />
                 </StackLayout>
             </Frame>
