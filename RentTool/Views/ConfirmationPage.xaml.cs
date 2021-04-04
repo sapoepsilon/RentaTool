@@ -14,8 +14,7 @@ namespace RentTool.Views
         string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         private string toolID;
         private string UserID;
-
-
+      
 
         [Obsolete]
 
@@ -24,8 +23,14 @@ namespace RentTool.Views
             InitializeComponent();
             this.toolID = id;
             QueryRequest();
-            
+           
 
+        }
+
+        public ConfirmationPage(string toolID, object v)
+        {
+            this.toolID = toolID;
+           
         }
 
         [Obsolete]
@@ -39,6 +44,7 @@ namespace RentTool.Views
                     .GetCollection("tools")
                     .GetDocument(toolID)
                     .GetAsync();
+                   
 
                 var QueryObject = document.ToObject<Models.toolQuery>();
 
@@ -46,18 +52,23 @@ namespace RentTool.Views
                 ToolImage.Source = QueryObject.pictureUrl;
 
                 UserID = QueryObject.UserId;
+                //DisplayAlert("Message", UserID, "OK");
 
                 try
                 {
                     var idOfUser = await CrossCloudFirestore.Current
                     .Instance
-                    .GetCollection("user")
+                    .GetCollection("users")
                     .GetDocument(UserID)
                     .GetAsync();
-                    var QueryObjectUser = document.ToObject<Models.user>();
+                    var QueryObjectUser = idOfUser.ToObject<Models.user>();
 
                     FirstName.Text = QueryObjectUser.firstName;
                     LastName.Text = QueryObjectUser.lastName;
+                    PhoneNumber.Text = QueryObjectUser.phone;
+                    Zip.Text = QueryObjectUser.zip;
+                    
+
                 }
 
                 catch (Exception ex)
