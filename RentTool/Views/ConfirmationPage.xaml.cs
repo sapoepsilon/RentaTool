@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
+using RentTool.Models;
 using Xamarin.Forms;
 
 namespace RentTool.Views
 {
     public partial class ConfirmationPage : ContentPage
     {
-        public string UserID;
+        public string toolOfUser;
         string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         private string toolID;
+        ObservableCollection<Models.user> userInformation = new ObservableCollection<Models.user>();
+
 
         [Obsolete]
 
@@ -19,6 +23,7 @@ namespace RentTool.Views
             InitializeComponent();
             this.toolID = id;
             QueryRequest();
+           
         }
 
         [Obsolete]
@@ -37,7 +42,22 @@ namespace RentTool.Views
 
                 ToolName.Text = QueryObject.toolName;
                 ToolImage.Source = QueryObject.pictureUrl;
+
+                foreach (var toolOfUser in QueryObject.toolID)
+                {
+                    var userInfo = await CrossCloudFirestore.Current
+                    .Instance
+                    .GetCollection("users")
+                    .GetDocument(this.toolOfUser)
+                    .GetAsync();
+                    var getTheUser = userInfo.ToObject<Models.user>();
+
+                    FirstName.Text = getTheUser.firstName;
+                    LastName.Text = getTheUser.lastName;
+                }
                 
+  
+
             }
             catch (Exception ex)
             {
@@ -46,7 +66,6 @@ namespace RentTool.Views
 
 
         }
-
         
     }
 }
