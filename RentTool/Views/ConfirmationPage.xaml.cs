@@ -10,10 +10,11 @@ namespace RentTool.Views
 {
     public partial class ConfirmationPage : ContentPage
     {
-        public string toolOfUser;
+       
         string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         private string toolID;
-        ObservableCollection<Models.user> userInformation = new ObservableCollection<Models.user>();
+        private string UserID;
+
 
 
         [Obsolete]
@@ -23,7 +24,8 @@ namespace RentTool.Views
             InitializeComponent();
             this.toolID = id;
             QueryRequest();
-           
+            
+
         }
 
         [Obsolete]
@@ -43,20 +45,25 @@ namespace RentTool.Views
                 ToolName.Text = QueryObject.toolName;
                 ToolImage.Source = QueryObject.pictureUrl;
 
-                foreach (var toolOfUser in QueryObject.toolID)
-                {
-                    var userInfo = await CrossCloudFirestore.Current
-                    .Instance
-                    .GetCollection("users")
-                    .GetDocument(this.toolOfUser)
-                    .GetAsync();
-                    var getTheUser = userInfo.ToObject<Models.user>();
+                UserID = QueryObject.UserId;
 
-                    FirstName.Text = getTheUser.firstName;
-                    LastName.Text = getTheUser.lastName;
+                try
+                {
+                    var idOfUser = await CrossCloudFirestore.Current
+                    .Instance
+                    .GetCollection("user")
+                    .GetDocument(UserID)
+                    .GetAsync();
+                    var QueryObjectUser = document.ToObject<Models.user>();
+
+                    FirstName.Text = QueryObjectUser.firstName;
+                    LastName.Text = QueryObjectUser.lastName;
                 }
-                
-  
+
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "OK");
+                }
 
             }
             catch (Exception ex)

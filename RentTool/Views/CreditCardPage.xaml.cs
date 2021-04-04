@@ -32,7 +32,7 @@ namespace RentTool.Views
         private string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
         private string userEmail;
         private double date;
-
+        private string userInfo;
 
         private string stripeAPIKey =
             "pk_test_51IPy4cGrlGP6UBf685TcRd4arux8SmbLMDn5Rh7RytyEv3BRtkD5NOrMqCCLrn7zOoAmDoC7CA3ZQXFJfS3Gipe400oBatXkYI";
