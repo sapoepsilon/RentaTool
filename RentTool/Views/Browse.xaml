@@ -5,15 +5,15 @@
             BorderColor="#e0a85d"
             HasShadow="True"
             CornerRadius="12"
-            VerticalOptions="Fill"
+            VerticalOptions="FillAndExpand"
             HorizontalOptions="Fill">
             <Frame.Background>
-                <RadialGradientBrush>
+                <LinearGradientBrush>
                     <GradientStop Color="#dc8845"
-                                  Offset="0.1" />
+                                  Offset="24" />
                     <GradientStop Color="#e0a85d"
-                                  Offset="1.0" />
-                </RadialGradientBrush>
+                                  Offset="0.01" />
+                </LinearGradientBrush>
             </Frame.Background>
 
         <Grid Margin="10,30,10,10">
@@ -65,7 +65,7 @@
                             <Label Grid.Row="2"
                        Grid.Column="0"
                        Text="{Binding pricePerDay, StringFormat='${0:N}'}"      
-                       VerticalOptions="End" TextColor="Green" />
+                       VerticalOptions="End" TextColor="#679276" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

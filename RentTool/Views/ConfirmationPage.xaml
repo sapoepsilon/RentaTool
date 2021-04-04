@@ -7,8 +7,8 @@
         <ScrollView>
             <StackLayout>
                 <Label Text="Rent Confirmed! ✅" Margin="10,0,0,0" FontSize="Large" TextColor="Black"></Label>
-                <Image x:Name="ToolImage" Margin="0, 15, 0, 0" HeightRequest="100" WidthRequest="100"></Image>
-                <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Medium" TextColor="Black" ></Label>
+                <Image x:Name="ToolImage" Margin="0, 15, 0, 0" HeightRequest="300 " WidthRequest="200"></Image>
+                <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Large" TextColor="#679267" ></Label>
                 <Label x:Name="FirstName" FontSize="Small" TextColor="Black"></Label>
                 <Label x:Name=" LastName" FontSize="Small" TextColor="Black"></Label>
             </StackLayout>

@@ -5,24 +5,24 @@
                         <Frame
                                 BorderColor="#e0a85d"
                                 HasShadow="True"
-                                CornerRadius="12"
+                                CornerRadius="3"
                                 VerticalOptions="Fill"
                                 HorizontalOptions="Fill">
                                 <Frame.Background>
-                                        <RadialGradientBrush>
+                                        <RadialGradientBrush Center="0,1">
                                                 <GradientStop Color="#dc8845"
-                                                              Offset="0.1" />
+                                                              Offset="1.5" />
                                                 <GradientStop Color="#e0a85d"
-                                                              Offset="1.0" />
+                                                              Offset="2.5" />
                                         </RadialGradientBrush>
                                 </Frame.Background>
                         <StackLayout>
             <Label Text="Add New Tool" Margin="10,30,10,10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="18" />
-            <Entry Placeholder="Name: " PlaceholderColor="Black" TextColor="White"  Margin="10,0,10,10" x:Name="toolName"/>
-            <Entry Placeholder="Price: " PlaceholderColor="Black" TextColor="White"   Margin="10,10,10,10" x:Name="toolPrice"/>
-            <Entry Placeholder="Description: " PlaceholderColor="Black" TextColor="White"  Margin="10,10,10,10" x:Name = "toolDescription"/>
-            <Entry Placeholder="Address: Street City State Country (No Commas)" PlaceholderColor="White" TextColor="Black"  Margin="10,10,10,10" x:Name="toolAddress"/>
-            <Entry Placeholder="Payment:" Margin="10,10,10,10" x:Name="toolPayment" PlaceholderColor="White" TextColor="Black" />
+            <Entry Placeholder="Name: " BackgroundColor="#ffbf58" PlaceholderColor="White" TextColor="White"  Margin="10,0,10,10" x:Name="toolName"/>
+            <Entry Placeholder="Price: " BackgroundColor="#ffbf58" PlaceholderColor="White" TextColor="White"   Margin="10,10,10,10" x:Name="toolPrice"/>
+            <Entry Placeholder="Description: " BackgroundColor="#ffbf58" PlaceholderColor="White" TextColor="White"   Margin="10,10,10,10" x:Name = "toolDescription"/>
+            <Entry Placeholder="Address: Street City State Country (No Commas)" BackgroundColor="#ffbf58" PlaceholderColor="White" TextColor="White"   Margin="10,10,10,10" x:Name="toolAddress"/>
+            <Entry Placeholder="Payment:" Margin="10,10,10,10" x:Name="toolPayment" BackgroundColor="#ffbf58" PlaceholderColor="White" TextColor="White"  />
             <Grid Margin="10, 0, 10, 0" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200" />
@@ -32,11 +32,11 @@
                             <RowDefinition Height="35" />
                     </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="take a Pic" x:Name="takePic"  BackgroundColor="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="TakePic_OnClicked"/>
-            <Button Grid.Row="0"  Grid.Column="1" Text="choose a Pic" x:Name="addPic" BackgroundColor="green" CornerRadius="15" Font="Small" TextColor="White" Clicked="AddPic_OnClicked"  />
+            <Button Grid.Row="0" Grid.Column="0" Text="take a Pic" x:Name="takePic"  BackgroundColor="#679276" CornerRadius="15" Font="Small" TextColor="White" Clicked="TakePic_OnClicked"/>
+            <Button Grid.Row="0"  Grid.Column="1" Text="choose a Pic" x:Name="addPic" BackgroundColor="#679276" CornerRadius="15" Font="Small" TextColor="White" Clicked="AddPic_OnClicked"  />
                             </Grid>
             <Image x:Name="imageOfTheTool" HeightRequest="150" />
-            <Button Text="Add Tool" Clicked="AddToolButton_Clicked" CornerRadius="20" BackgroundColor="Black" TextColor="White"/>
+            <Button Text="Add Tool" Clicked="AddToolButton_Clicked" CornerRadius="20" BackgroundColor="#679276" TextColor="White"/>
     </StackLayout>
                                 </Frame>
                 </ScrollView>

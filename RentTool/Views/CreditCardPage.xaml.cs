@@ -90,7 +90,7 @@ namespace RentTool.Views
                 if (isTrasacitonSuccess)
                 {
                     updateToolAvailability(this.toolID);
-                    await Navigation.PushAsync(new Browse());
+                   
                     //UserDialogs.Instance.Alert("Success", "Payment has been made", "Ok");
                     UserDialogs.Instance.HideLoading();
                 }

@@ -10,7 +10,6 @@ namespace RentTool.Views
     {
         public string UserID;
         string WebApiKey = "AIzaSyAUum5OozKcO7mXvgnXIQ7PLTC8vdmXMcI";
-        public string toolQuery;
         private string toolID;
 
         [Obsolete]
@@ -38,23 +37,7 @@ namespace RentTool.Views
 
                 ToolName.Text = QueryObject.toolName;
                 ToolImage.Source = QueryObject.pictureUrl;
-
-                foreach (var toolOfUser in QueryObject.toolID)
-                {
-                    var documentUser = await CrossCloudFirestore.Current
-                    .Instance
-                    .GetCollection("user")
-                    .GetDocument(toolID)
-                    .GetAsync();
-                    var QueryObjectUser = document.ToObject<Models.user>();
-
-                    ToolName.Text = QueryObject.toolName;
-                    ToolImage.Source = QueryObject.pictureUrl;
-
-
-                }
-
-
+                
             }
             catch (Exception ex)
             {

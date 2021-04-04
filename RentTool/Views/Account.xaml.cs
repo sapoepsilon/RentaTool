@@ -156,16 +156,16 @@ namespace RentTool
 
         private async void Delete_Clicked(object sender, EventArgs e)
         {
+            var tool =  ((ImageButton) sender).BindingContext as string;
             var answer = await App.Current.MainPage.DisplayAlert("Delete tool?",
                 "Are you sure you want to delete this tool?",
-                "Yes", "No, I am dummy");
-
+                "Yes", "No");
+            
             if (answer == true)
             {
                 try
                 {
-                    var tool = ((Button) sender).BindingContext as string;
-
+                    
                     await CrossCloudFirestore.Current
                         .Instance
                         .GetCollection("tools")
@@ -181,7 +181,7 @@ namespace RentTool
                 }
                 catch (Exception ex)
                 {
-                    await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
+                    await App.Current.MainPage.DisplayAlert("Alert", ex.StackTrace, "Ok");
                 }
 
                 await App.Current.MainPage.DisplayAlert("Alert", "The tool has been deleted", "Ok");

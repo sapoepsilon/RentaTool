@@ -52,9 +52,11 @@ namespace RentTool
         }
         private async Task RotateElement(VisualElement element, CancellationToken cancellation)
         {
+            logoImage.Source = "izzy.png";
+
             while (!cancellation.IsCancellationRequested)
             {
-                await logoImage.RotateTo(360, 1200, Easing.Linear);
+                await logoImage.RotateTo(360, 24000, Easing.Linear);
                 await logoImage.RotateTo(0, 0); // reset to initial position
             }
         }
