@@ -18,11 +18,11 @@
                 </RadialGradientBrush>
             </Frame.Background>
         <StackLayout>
-            <Image x:Name="ToolImage" Margin="0, 15, 0, 0" HeightRequest="300" WidthRequest="100"></Image>
-            <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Large" FontAttributes="Bold" TextColor="Black" ></Label>
-            <Label x:Name= "ToolPrice" Margin="10, 0, 0, 0" FontSize="Medium" TextColor="Green"></Label>
-            <Label x:Name="ToolDescription" Margin="10, 0, 0, 0" FontSize="Small" FontAttributes="Bold" TextColor="black"></Label>
-            <Button x:Name="pickDateButton" Margin="0, 40, 0, 0" Text="Pick Dates" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="Green" Clicked="PickDateButton_OnClicked" CornerRadius="20" TextColor="White"/>
+            <Image x:Name="ToolImage" Margin="0, 15, 0, 0" HeightRequest="300"  WidthRequest="100"></Image>
+            <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Large" FontAttributes="Bold" TextColor="White" ></Label>
+            <Label x:Name= "ToolPrice" Margin="10, 0, 0, 0" FontSize="Medium" TextColor="#679276"></Label>
+            <Label x:Name="ToolDescription" Margin="10, 0, 0, 0" FontSize="Small" FontAttributes="Bold" TextColor="White"></Label>
+            <Button x:Name="pickDateButton" Margin="0, 40, 0, 0" Text="Pick Dates" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="#679276" Clicked="PickDateButton_OnClicked" CornerRadius="20" TextColor="White"/>
         </StackLayout>
         </Frame>
     </ContentPage.Content>

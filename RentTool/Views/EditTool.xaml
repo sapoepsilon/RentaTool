@@ -29,7 +29,7 @@
                     <ColumnDefinition Width="30*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Text="Is your tool available? "></Label>
-                <Switch Grid.Column="1" x:Name="toolAvailibility" Toggled="ToolAvailibility_OnToggled" OnColor="Green" />
+                <Switch Grid.Column="1" x:Name="toolAvailibility" Toggled="ToolAvailibility_OnToggled" OnColor="#679276" />
             </Grid>
             <Label Text="Add New Tool" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             <Entry Placeholder="Name: "  Margin="10,10,10,10" x:Name="toolName"/>
@@ -37,7 +37,7 @@
             <Entry Placeholder="Description: " Margin="10,10,10,10" x:Name = "toolDescription"/>
             <Entry Placeholder="Address: " Margin="10,10,10,10" x:Name="toolAddress"/>
             <Entry Placeholder="Payment: " Margin="10,10,10,10" x:Name="toolPayment"/>
-            <Button Text="Update Tool" TextColor="White" Clicked="EditToolButton_Clicked" BackgroundColor="DarkCyan"/>
+            <Button Text="Update Tool" TextColor="White" Clicked="EditToolButton_Clicked" BackgroundColor="#679276"/>
            
         </StackLayout>
             </ScrollView>

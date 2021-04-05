@@ -25,9 +25,9 @@
                         <RowDefinition Height="35" />
                     </Grid.RowDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" Text="UPDATE" Clicked="UpdateClicked" BackgroundColor="Green" TextColor="White" CornerRadius="20"/>
+                    <Button Grid.Row="0" Grid.Column="0" Text="UPDATE" Clicked="UpdateClicked" BackgroundColor="#679276" TextColor="White" CornerRadius="20"/>
                     <Button Grid.Row="0" Grid.Column="1" Text="Change Password" Clicked="ChangeClicked"
-                            BackgroundColor="Blue" TextColor="White" CornerRadius="20"/>
+                            BackgroundColor="#679276" TextColor="White" CornerRadius="20"/>
                 </Grid>
 
                 <Grid Margin="10, 15, 10, 10" ColumnSpacing="10">
@@ -40,12 +40,11 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" Grid.Column="1" CornerRadius="20" Text="Add Item" Clicked="Button_Clicked"
-                            BorderColor="Green" BorderWidth="1" TextColor="Green"  BackgroundColor="White" />
+                            BorderColor="#679276" BorderWidth="1" TextColor="Green"  BackgroundColor="White" />
                     <Label Grid.Row="0" Grid.Column="0" Text="My Tools" WidthRequest="15" TextColor="White"
-                           FontSize="Large" BackgroundColor="Green" Opacity="70" HorizontalTextAlignment="Center" />
+                           FontSize="Large" BackgroundColor="#679276" Opacity="70" HorizontalTextAlignment="Center" />
                 </Grid>
-
-                <ListView x:Name="toolName"  HeightRequest="400" ItemSelected="ToolName_OnItemSelected" >
+                <ListView x:Name="toolName"  HeightRequest="200" ItemSelected="ToolName_OnItemSelected" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -69,15 +68,18 @@
                                             HeightRequest="30"
                                             BindingContext="{Binding toolID}" WidthRequest="20"
                                             Clicked="Delete_Clicked"
-                                             />
+                                      />
                                 </Grid>
-                            </ViewCell>
+                        </ViewCell>
                         </DataTemplate>
+
                     </ListView.ItemTemplate>
+                        
                 </ListView>
-                <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White"
+            <Button x:Name="Logout" Text="Logout" BackgroundColor="Black" TextColor="White"
                         Clicked="Logout_Clicked" CornerRadius="20"/>
             </StackLayout>
+
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

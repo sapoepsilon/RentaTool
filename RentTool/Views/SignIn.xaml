@@ -22,19 +22,14 @@
                 
 
                     <StackLayout Margin="20"  Spacing="20" Orientation="Vertical" Visual="Material">
-                        <StackLayout Padding="40">
-                            <Frame CornerRadius="100" 
-                                   HeightRequest="250"
-                                   WidthRequest="250"
-                                   HorizontalOptions="Center"
-                                   Padding="0"
-                                   IsClippedToBounds="True">
-                            <Image 
+
+                    
+                        <Image
+                            Source="https://icon-library.net/images/hammer-icon-png/hammer-icon-png-18.jpg"
                             HorizontalOptions="Start"
                             VerticalOptions="Center"
                             x:Name="logoImage"/>
-                            </Frame>
-                        </StackLayout>
+      
                         <Entry Placeholder="Email" TextColor="White"  BackgroundColor="#ffbf58"  PlaceholderColor="White" x:Name="UserLoginEmail" Keyboard="Plain" />
                         <Entry Placeholder="Password" TextColor="White" BackgroundColor="#ffbf58" PlaceholderColor="White" x:Name="UserLoginPassword" IsPassword="True" />
                          <Button BackgroundColor="#679276" Clicked="loginbutton_Clicked" CornerRadius="20" TextColor="White" Text="Login"

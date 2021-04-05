@@ -6,18 +6,28 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Rent Confirmed! ✅" Margin="10,0,0,0" FontSize="Large" TextColor="Black"></Label>
+                <Label Text="Success ✅" Margin="10,0,0,0" FontSize="Large" TextColor="Black"></Label>
                 <Image x:Name="ToolImage" Margin="0, 15, 0, 0" HeightRequest="300 " WidthRequest="200"></Image>
                 <Label x:Name="ToolName" Margin="10, 0, 0, 0" FontSize="Large" TextColor="#679267" ></Label>
-                <Label Text="Owner's Information" Margin="10,0,0,0" FontSize="Medium" TextColor="Black"></Label>
                 <Label x:Name="FirstName" FontSize="Small" TextColor="Black" Margin="10, 0, 0,0 "></Label>
                 <Label x:Name="LastName" FontSize="Small" TextColor="Black" Margin="10, 0, 0,0 "></Label>
                 <Label x:Name="PhoneNumber" FontSize="Small" TextColor="Black" Margin="10, 0, 0,0 "></Label>
                 <Label x:Name="Zip" FontSize="Small" TextColor="Black" Margin="10, 0, 0,0 "></Label>
-
-                <Label x:Name="Date" Text="Pick up Information" Margin="10,0,0,0" FontSize="Medium" TextColor="Black"></Label>
-               
+                <Label x:Name="DatePeriod" Margin="0,0,0,10"/>
                 <Label Text="Total" Margin="10,0,0,0" FontSize="Medium" TextColor="#679267"></Label>
+                <Label x:Name="TotalAmount"></Label>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" CornerRadius="20" Grid.Column="0" Text="SMS"  BackgroundColor="#679276" TextColor="White" Clicked="SMS_OnClicked" x:Name="SMS" Margin="0,0 ,0,10"></Button>
+                </Grid>
+                
 
 
 
